@@ -16,5 +16,6 @@ staddur. (2%)
   * Notaðu **test_page.php** til að setja gögn í grunnninn
   * í skránni **class.datamanager.php** eru meðal annara föllin: **categoryList()**, **newImageInfo()**
 
-útbúðu vefsíðu(má nota test_page.php) sem nýtir þessi föll til að gera það sem þau eiga að gera; birta lista af categories og inserta nýrri mynd.
+Útbúðu vefsíðu (má nota test_page.php) sem nýtir þessi föll til að gera það sem þau eiga að gera; birta lista af categories og inserta nýrri mynd.
+
 Námsmat: Gefið er aðeins fyrir þá liði sem eru leystir á fullnægjandi hátt
