@@ -84,8 +84,11 @@
     <main class="hero">
         <div class="container">
             <div class="hero-caption">
-                <h1>Photobase website</h1>
-                <p>Where photos come to live</p>
+                <div class="section-title">
+                    <h1>Photobase website</h1>
+                    <p>Where photos come to live</p>
+                      
+                </div>
                 <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a>
                 </p>
             </div>
@@ -178,15 +181,18 @@
         <div class="row">
             <h2 class="section-title">Hafðu samband</h2>
 
-            <form>
+            <form class="contact">
                 <div class="col-md-6 form-group">
-                    <input type="text" class="form-control">
+                    <input type="text" id="name" class="form-control">
+                    <label for="name">Your name</label>
                 </div>
                 <div class="col-md-6 form-group">
-                    <input type="email" class="form-control">
+                    <input type="email" id="email" class="form-control">
+                    <label for="email">Your email</label>
                 </div>
-                <div class="col-md-12">
-                    <textarea class="form-control"></textarea>
+                <div class="col-md-12 form-group">
+                    <textarea id="message" class="form-control" rows="10"></textarea>
+                    <label for="message">Your message</label>
                 </div>
                 <div class="col-md-12 form-group">
                     <input type="submit" class="form-control">
@@ -202,6 +208,23 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="assets/javascripts/bootstrap.min.js"></script>
+    <script>
+        $(function(){
+
+            $('.contact .form-group .form-control').focusout(function() {
+
+                var text_val = $(this).val();
+
+                if(text_val === "") {
+                    $(this).removeClass('has-value');
+                } else {
+                    $(this).addClass('has-value');
+                }
+
+            });
+
+        });
+    </script>
 
 </body>
 
