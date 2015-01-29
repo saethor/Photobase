@@ -5681,7 +5681,7 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
   position: relative; }
 
 .hero-caption {
@@ -5696,5 +5696,73 @@ body {
   margin: 5px;
   border: 8px solid black;
   color: black; }
+
+section {
+  margin-top: 50px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px; }
+  section:before, section:after {
+    content: " ";
+    display: table; }
+  section:after {
+    clear: both; }
+  @media (min-width: 768px) {
+    section {
+      width: 750px; } }
+  @media (min-width: 992px) {
+    section {
+      width: 970px; } }
+  @media (min-width: 1200px) {
+    section {
+      width: 1170px; } }
+
+.section-title {
+  display: block;
+  text-align: center;
+  font-size: 2.5em;
+  border: 3px solid black;
+  padding: 10px 30px;
+  margin: 50px auto;
+  clear: both; }
+  .section-title:before, .section-title:after {
+    content: " ";
+    display: table; }
+  .section-title:after {
+    clear: both; }
+
+.section-album .col-lg-4 {
+  margin-bottom: 20px;
+  text-align: center; }
+.section-album h2 {
+  font-weight: normal; }
+.section-album .col-lg-4 p {
+  margin-right: 10px;
+  margin-left: 10px; }
+.section-album .col-lg-4 img {
+  width: 140px;
+  height: 140px; }
+
+.section-photos .item {
+  padding: 0;
+  -webkit-transition: all 0.3s 0 ease;
+  -o-transition: all 0.3s 0 ease;
+  transition: all 0.3s 0 ease; }
+  .section-photos .item img {
+    display: block;
+    max-width: 100%;
+    height: auto; }
+  .section-photos .item:hover {
+    z-index: 200;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    transform: scale(1.1);
+    -webkit-box-shadow: 0 5px 20px #000;
+    box-shadow: 0 5px 20px #000;
+    -webkit-transition: all 0.5s 0 ease;
+    -o-transition: all 0.5s 0 ease;
+    transition: all 0.5s 0 ease; }
 
 /*# sourceMappingURL=main.css.map */

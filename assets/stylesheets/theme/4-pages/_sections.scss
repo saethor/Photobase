@@ -1,0 +1,61 @@
+section {
+    margin-top: 50px;
+    @include container-fixed;
+
+    @media (min-width: $screen-sm-min) {
+      width: $container-sm;
+    }
+    @media (min-width: $screen-md-min) {
+      width: $container-md;
+    }
+    @media (min-width: $screen-lg-min) {
+      width: $container-lg;
+    }
+}
+.section-title {
+    display: block;
+    text-align: center;
+    font-size: 2.5em;
+    border: 3px solid black;
+    padding: 10px 30px;
+    margin: 50px auto;
+    clear: both;
+    @include clearfix();
+}
+.section-album {
+    .col-lg-4 {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    h2 {
+        font-weight: normal;
+    }
+    .col-lg-4 p {
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+    .col-lg-4 img {
+        width: 140px;
+        height: 140px;
+    }
+}
+.section-photos {
+    .item {
+        img {
+            @include img-responsive;
+        }
+        padding: 0;
+        @include transition(all 0.3s 0 ease);
+
+        &:hover {
+            z-index: 200;
+            @include scale(1.1);
+            @include box-shadow(0 5px 30px #000);
+            @include transition(all 0.5s 0 ease);
+        }
+    }
+
+}
+.section-contact {
+
+}
