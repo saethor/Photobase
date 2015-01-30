@@ -33,11 +33,9 @@
 
 
                     <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <button type="button" class="toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                             <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
+                            Menu
                         </button>
                         <a class="navbar-brand" href="#">Photobase</a>
                     </div>
@@ -46,29 +44,11 @@
                     <div id="navbar" class="navbar-collapse collapse navbar-right">
 
                         <ul class="nav navbar-nav">
-                            <li><a href="#">Home</a>
+                            <li class="active"><a href="#">Home</a>
                             </li>
-                            <li><a href="#about">About</a>
+                            <li><a href="#about">Albums</a>
                             </li>
                             <li><a href="#contact">Contact</a>
-                            </li>
-
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">Action</a>
-                                    </li>
-                                    <li><a href="#">Another action</a>
-                                    </li>
-                                    <li><a href="#">Something else here</a>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li class="dropdown-header">Nav header</li>
-                                    <li><a href="#">Separated link</a>
-                                    </li>
-                                    <li><a href="#">One more separated link</a>
-                                    </li>
-                                </ul>
                             </li>
                         </ul>
 
@@ -85,13 +65,7 @@
     ================================================== -->
     <main class="hero">
         <div class="container">
-            <div class="hero-caption">
-                <div class="section-title">
-                    <h1></h1>
-                    <p>Where photos come to live</p>
-                </div>
-                <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a>
-                </p>
+            <div class="hero-footer">
 
                 <div class="social-icons">
                     <a href="https://facebook.com/saethor94" target="_blank" class="social-icon">
@@ -107,14 +81,20 @@
                         <i class="fa fa-github"></i>
                     </a>
                 </div>
+
+                <div class="scroll">
+                    <a href="#section-album"><i class="fa fa-angle-double-down"></i></a>
+                </div>
+
             </div>
+
         </div>
     </main>
     <!-- /.Hero -->
 
 
 
-    <section class="section-album">
+    <section class="section-album" id="section-album">
 
         <div class="row">
 
@@ -149,50 +129,48 @@
 
     </section>
 
-    <section class="section-photos">
+    <section class="section-photos" id="section-photos">
 
         <div class="row">
             <h2 class="section-title">Nýjustu myndirnar</h2>
 
             <div class="col-xs-6 col-sm-4 col-md-3 item">
-                <img src="assets/images/SAM_0229.jpg" alt="">
+                <img src="assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
             </div>
 
             <div class="col-xs-6 col-sm-4 col-md-3 item">
-                <img src="assets/images/SAM_0286.jpg" alt="">
+                <img src="assets/images/thumbnails/SAM_0286_thumbnail.jpg" alt="">
             </div>
 
             <div class="col-xs-6 col-sm-4 col-md-3 item">
-                <img src="assets/images/SAM_0295.jpg" alt="">
+                <img src="assets/images/thumbnails/SAM_0295_thumbnail.jpg" alt="">
             </div>
 
             <div class="col-xs-6 col-sm-4 col-md-3 item">
-                <img src="assets/images/SAM_0258.jpg" alt="">
+                <img src="assets/images/thumbnails/SAM_0258_thumbnail.jpg" alt="">
             </div>
 
             <div class="col-xs-6 col-sm-4 col-md-3 item">
-                <img src="assets/images/SAM_0303.jpg" alt="">
+                <img src="assets/images/thumbnails/SAM_0303_thumbnail.jpg" alt="">
             </div>
 
             <div class="col-xs-6 col-sm-4 col-md-3 item">
-                <img src="assets/images/SAM_0319.jpg" alt="">
+                <img src="assets/images/thumbnails/SAM_0319_thumbnail.jpg" alt="">
             </div>
 
             <div class="col-xs-6 col-sm-4 col-md-3 item">
-                <img src="assets/images/SAM_0330.jpg" alt="">
+                <img src="assets/images/thumbnails/SAM_0330_thumbnail.jpg" alt="">
             </div>
 
             <div class="col-xs-6 col-sm-4 col-md-3 item">
-                <img src="assets/images/SAM_0455.jpg" alt="">
+                <img src="assets/images/thumbnails/SAM_0455_thumbnail.jpg" alt="">
             </div>
-
-
 
         </div>
 
     </section>
 
-    <section class="section-contact">
+    <section class="section-contact" id="section-contact">
 
         <div class="row">
             <h2 class="section-title">Hafðu samband</h2>

@@ -2,7 +2,7 @@
 .hero {
   height: 100vh;
   /*background-color: #777;*/
-  background: url(/assets/images/jumbotron.jpg) no-repeat center center fixed;
+  background: url(/assets/images/SAM_0263.JPG) no-repeat center center fixed;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center center;
@@ -14,11 +14,11 @@
   position: relative;
 }
 
-.hero-caption {
+.hero-footer {
     position: absolute;
-    left: 20%;
-    right: 20%;
-    bottom: 30%;
+    left: 10%;
+    right: 10%;
+    bottom: 0;
     z-index: 10;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -35,6 +35,16 @@
         display: inline-block;
         font-size: 2em;
         padding: 20px;
+        color: #fff;
+    }
+}
+
+.scroll {
+
+    font-size: 1em;
+
+    i {
+        font-size: 2em;
         color: #fff;
     }
 }
