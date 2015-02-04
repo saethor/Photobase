@@ -5729,7 +5729,7 @@ body {
 .hero {
   height: 100vh;
   /*background-color: #777;*/
-  background: url(/assets/images/SAM_0263.JPG) no-repeat center center fixed;
+  background: url(/Photobase/assets/images/SAM_0263.JPG) no-repeat center center fixed;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center center;

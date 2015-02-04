@@ -1,3 +1,8 @@
+<?php
+
+require_once '../../app/init.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +16,7 @@
     <title>Albums</title>
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link href="/assets/stylesheets/main.css" rel="stylesheet">
+    <link href="<?php echo $path; ?>assets/stylesheets/main.css" rel="stylesheet">
 
 </head>
 
@@ -36,9 +41,9 @@
                     <div id="navbar" class="navbar-collapse collapse navbar-right">
 
                         <ul class="nav navbar-nav">
-                            <li><a href="/">Home</a>
+                            <li><a href="<?php echo $path; ?>">Home</a>
                             </li>
-                            <li class="active"><a href="/albums">Albums</a>
+                            <li class="active"><a href="<?php echo $path; ?>albums">Albums</a>
                             </li>
                             <li><a href="#contact">Contact</a>
                             </li>
@@ -56,7 +61,7 @@
         <div class="container">
 
             <div class="hero-title">
-                <h1>Krít 2013</h1>
+                <h1>London 2014</h1>
             </div>
 
 
@@ -94,26 +99,26 @@
         <div class="row">
 
             <div class="col-lg-4">
-                <img class="img-circle" src="/assets/images/london.jpg" alt="London 2014 Album" width="140" height="140">
+                <img class="img-circle" src="<?php echo $path; ?>assets/images/london.jpg" alt="London 2014 Album" width="140" height="140">
                 <h2>London 2014</h2>
                 <p>Skelltum okkur til London um páskana 2014 þar sem orlofið var nýtt vel í misgáfaða hluti</p>
-                <p><a class="btn btn-default" href="/albums/london/" role="button">Skoða albúm &raquo;</a>
+                <p><a class="btn btn-default" href="<?php echo $path; ?>albums/london/" role="button">Skoða albúm &raquo;</a>
                 </p>
             </div>
 
             <div class="col-lg-4">
-                <img class="img-circle" src="/assets/images/krit.jpg" alt="Krít 2013 Album" width="140" height="140">
+                <img class="img-circle" src="<?php echo $path; ?>assets/images/krit.jpg" alt="Krít 2013 Album" width="140" height="140">
                 <h2>Krít 2013</h2>
                 <p>Notuðum tækifærið að slappa aðeins af á grískueyjunni Krít áður en alvaran í Reykjavík verð að veruleika og langt og strangt frystihúsasumar var á enda.</p>
-                <p><a class="btn btn-default" href="/albums/krit/" role="button">Skoða albúm &raquo;</a>
+                <p><a class="btn btn-default" href="<?php echo $path; ?>albums/krit/" role="button">Skoða albúm &raquo;</a>
                 </p>
             </div>
 
             <div class="col-lg-4">
-                <img class="img-circle" src="/assets/images/bustadur.jpg" alt="Bústaðarferð 2013 Album" width="140" height="140">
+                <img class="img-circle" src="<?php echo $path; ?>assets/images/bustadur.jpg" alt="Bústaðarferð 2013 Album" width="140" height="140">
                 <h2>Bústaður 2013</h2>
                 <p>Bústaðarferð rétt fyrir utan laugarvatn með Ragnheiði og Braga í febrúar 2013.</p>
-                <p><a class="btn btn-default" href="/albums/bustadur/" role="button">Skoða albúm &raquo;</a>
+                <p><a class="btn btn-default" href="<?php echo $path; ?>albums/bustadur/" role="button">Skoða albúm &raquo;</a>
                 </p>
             </div>
 

@@ -1,3 +1,9 @@
+<?php
+
+require_once '../../app/init.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,7 +17,7 @@
     <title>Albums</title>
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link href="/assets/stylesheets/main.css" rel="stylesheet">
+    <link href="<?php echo $path; ?>assets/stylesheets/main.css" rel="stylesheet">
 
 </head>
 
@@ -36,9 +42,9 @@
                     <div id="navbar" class="navbar-collapse collapse navbar-right">
 
                         <ul class="nav navbar-nav">
-                            <li><a href="/">Home</a>
+                            <li><a href="<?php echo $path; ?>">Home</a>
                             </li>
-                            <li class="active"><a href="/albums">Albums</a>
+                            <li class="active"><a href="<?php echo $path; ?>albums">Albums</a>
                             </li>
                             <li><a href="#contact">Contact</a>
                             </li>
@@ -88,82 +94,82 @@
     <!-- /.Hero -->
 
     <section class="section-photos">
-        <div class="row">   
+        <div class="row">
             <div class="col-xs-6 col-sm-4 col-md-3 item">
-                <img src="/assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
+                <img src="<?php echo $path; ?>assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
             </div>
             <div class="col-xs-6 col-sm-4 col-md-3 item">
-                <img src="/assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
+                <img src="<?php echo $path; ?>assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
             </div>
             <div class="col-xs-6 col-sm-4 col-md-3 item">
-                <img src="/assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
+                <img src="<?php echo $path; ?>assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
             </div>
             <div class="col-xs-6 col-sm-4 col-md-3 item">
-                <img src="/assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
+                <img src="<?php echo $path; ?>assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
             </div>
             <div class="col-xs-6 col-sm-4 col-md-3 item">
-                <img src="/assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
+                <img src="<?php echo $path; ?>assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
             </div>
             <div class="col-xs-6 col-sm-4 col-md-3 item">
-                <img src="/assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
+                <img src="<?php echo $path; ?>assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
             </div>
             <div class="col-xs-6 col-sm-4 col-md-3 item">
-                <img src="/assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
+                <img src="<?php echo $path; ?>assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
             </div>
             <div class="col-xs-6 col-sm-4 col-md-3 item">
-                <img src="/assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
+                <img src="<?php echo $path; ?>assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
             </div>
             <div class="col-xs-6 col-sm-4 col-md-3 item">
-                <img src="/assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
+                <img src="<?php echo $path; ?>assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
             </div>
             <div class="col-xs-6 col-sm-4 col-md-3 item">
-                <img src="/assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
+                <img src="<?php echo $path; ?>assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
             </div>
             <div class="col-xs-6 col-sm-4 col-md-3 item">
-                <img src="/assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
+                <img src="<?php echo $path; ?>assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
             </div>
             <div class="col-xs-6 col-sm-4 col-md-3 item">
-                <img src="/assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
+                <img src="<?php echo $path; ?>assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
             </div>
             <div class="col-xs-6 col-sm-4 col-md-3 item">
-                <img src="/assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
+                <img src="<?php echo $path; ?>assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
             </div>
             <div class="col-xs-6 col-sm-4 col-md-3 item">
-                <img src="/assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
+                <img src="<?php echo $path; ?>assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
             </div>
             <div class="col-xs-6 col-sm-4 col-md-3 item">
-                <img src="/assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
+                <img src="<?php echo $path; ?>assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
             </div>
             <div class="col-xs-6 col-sm-4 col-md-3 item">
-                <img src="/assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
+                <img src="<?php echo $path; ?>assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
             </div>
             <div class="col-xs-6 col-sm-4 col-md-3 item">
-                <img src="/assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
+                <img src="<?php echo $path; ?>assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
             </div>
             <div class="col-xs-6 col-sm-4 col-md-3 item">
-                <img src="/assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
+                <img src="<?php echo $path; ?>assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
             </div>
             <div class="col-xs-6 col-sm-4 col-md-3 item">
-                <img src="/assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
+                <img src="<?php echo $path; ?>assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
             </div>
             <div class="col-xs-6 col-sm-4 col-md-3 item">
-                <img src="/assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
+                <img src="<?php echo $path; ?>assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
             </div>
             <div class="col-xs-6 col-sm-4 col-md-3 item">
-                <img src="/assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
+                <img src="<?php echo $path; ?>assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
             </div>
             <div class="col-xs-6 col-sm-4 col-md-3 item">
-                <img src="/assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
+                <img src="<?php echo $path; ?>assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
             </div>
             <div class="col-xs-6 col-sm-4 col-md-3 item">
-                <img src="/assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
+                <img src="<?php echo $path; ?>assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
             </div>
-            
+
 
         </div>
     </section>
 
-    
+
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

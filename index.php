@@ -1,3 +1,8 @@
+<?php
+
+require_once 'app/init.php';
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,10 +13,10 @@
     <meta name="author" content="">
     <link rel="icon" href="">
 
-    <title>Albums</title>
+    <title>Photobase</title>
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link href="/assets/stylesheets/main.css" rel="stylesheet">
+    <link href="<?php echo $path; ?>assets/stylesheets/main.css" rel="stylesheet">
 
 </head>
 
@@ -36,9 +41,9 @@
                     <div id="navbar" class="navbar-collapse collapse navbar-right">
 
                         <ul class="nav navbar-nav">
-                            <li><a href="/">Home</a>
+                            <li class="active"><a href="<?php echo $path; ?>">Home</a>
                             </li>
-                            <li class="active"><a href="/albums">Albums</a>
+                            <li><a href="<?php echo $path; ?>albums">Albums</a>
                             </li>
                             <li><a href="#contact">Contact</a>
                             </li>
@@ -56,9 +61,8 @@
         <div class="container">
 
             <div class="hero-title">
-                <h1>Albums</h1>
+                <h1>Web album</h1>
             </div>
-
 
             <div class="hero-footer">
 
@@ -86,39 +90,109 @@
         </div>
     </main>
     <!-- /.Hero -->
-    
+
 
 
     <section class="section-album" id="section-album">
 
         <div class="row">
 
+            <h2 class="section-title">Nýjustu albúmin</h2>
+
             <div class="col-lg-4">
-                <img class="img-circle" src="/assets/images/london.jpg" alt="London 2014 Album" width="140" height="140">
+                <img class="img-circle" src="<?php echo $path; ?>assets/images/london.jpg" alt="London 2014 Album" width="140" height="140">
                 <h2>London 2014</h2>
                 <p>Skelltum okkur til London um páskana 2014 þar sem orlofið var nýtt vel í misgáfaða hluti</p>
-                <p><a class="btn btn-default" href="/albums/london/" role="button">Skoða albúm &raquo;</a>
+                <p><a class="btn btn-default" href="<?php echo $path; ?>albums/london/" role="button">Skoða albúm &raquo;</a>
                 </p>
             </div>
 
             <div class="col-lg-4">
-                <img class="img-circle" src="/assets/images/krit.jpg" alt="Krít 2013 Album" width="140" height="140">
+                <img class="img-circle" src="<?php echo $path; ?>assets/images/krit.jpg" alt="Krít 2013 Album" width="140" height="140">
                 <h2>Krít 2013</h2>
                 <p>Notuðum tækifærið að slappa aðeins af á grískueyjunni Krít áður en alvaran í Reykjavík verð að veruleika og langt og strangt frystihúsasumar var á enda.</p>
-                <p><a class="btn btn-default" href="/albums/krit/" role="button">Skoða albúm &raquo;</a>
+                <p><a class="btn btn-default" href="<?php echo $path; ?>albums/krit" role="button">Skoða albúm &raquo;</a>
                 </p>
             </div>
 
             <div class="col-lg-4">
-                <img class="img-circle" src="/assets/images/bustadur.jpg" alt="Bústaðarferð 2013 Album" width="140" height="140">
+                <img class="img-circle" src="<?php echo $path; ?>assets/images/bustadur.jpg" alt="Bústaðarferð 2013 Album" width="140" height="140">
                 <h2>Bústaður 2013</h2>
                 <p>Bústaðarferð rétt fyrir utan laugarvatn með Ragnheiði og Braga í febrúar 2013.</p>
-                <p><a class="btn btn-default" href="/albums/bustadur/" role="button">Skoða albúm &raquo;</a>
+                <p><a class="btn btn-default" href="<?php echo $path; ?>albums/bustadur" role="button">Skoða albúm &raquo;</a>
                 </p>
             </div>
 
         </div>
         <!-- /.row -->
+
+    </section>
+
+    <section class="section-photos" id="section-photos">
+
+        <div class="row">
+            <h2 class="section-title">Nýjustu myndirnar</h2>
+
+            <div class="col-xs-6 col-sm-4 col-md-3 item">
+                <img src="<?php echo $path; ?>assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
+            </div>
+
+            <div class="col-xs-6 col-sm-4 col-md-3 item">
+                <img src="<?php echo $path; ?>assets/images/thumbnails/SAM_0286_thumbnail.jpg" alt="">
+            </div>
+
+            <div class="col-xs-6 col-sm-4 col-md-3 item">
+                <img src="<?php echo $path; ?>assets/images/thumbnails/SAM_0295_thumbnail.jpg" alt="">
+            </div>
+
+            <div class="col-xs-6 col-sm-4 col-md-3 item">
+                <img src="<?php echo $path; ?>assets/images/thumbnails/SAM_0258_thumbnail.jpg" alt="">
+            </div>
+
+            <div class="col-xs-6 col-sm-4 col-md-3 item">
+                <img src="<?php echo $path; ?>assets/images/thumbnails/SAM_0303_thumbnail.jpg" alt="">
+            </div>
+
+            <div class="col-xs-6 col-sm-4 col-md-3 item">
+                <img src="<?php echo $path; ?>assets/images/thumbnails/SAM_0319_thumbnail.jpg" alt="">
+            </div>
+
+            <div class="col-xs-6 col-sm-4 col-md-3 item">
+                <img src="<?php echo $path; ?>assets/images/thumbnails/SAM_0330_thumbnail.jpg" alt="">
+            </div>
+
+            <div class="col-xs-6 col-sm-4 col-md-3 item">
+                <img src="<?php echo $path; ?>assets/images/thumbnails/SAM_0455_thumbnail.jpg" alt="">
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="section-contact" id="section-contact">
+
+        <div class="row">
+            <h2 class="section-title">Hafðu samband</h2>
+
+            <form class="contact">
+                <div class="col-md-6 form-group">
+                    <input type="text" id="name" class="form-control">
+                    <label for="name">Your name</label>
+                </div>
+                <div class="col-md-6 form-group">
+                    <input type="email" id="email" class="form-control">
+                    <label for="email">Your email</label>
+                </div>
+                <div class="col-md-12 form-group">
+                    <textarea id="message" class="form-control" rows="10"></textarea>
+                    <label for="message">Your message</label>
+                </div>
+                <div class="col-md-12 form-group">
+                    <input type="submit" class="form-control">
+                </div>
+
+            </form>
+        </div>
 
     </section>
 
