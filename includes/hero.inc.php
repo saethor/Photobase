@@ -1,4 +1,29 @@
-<main class="hero">
+<?php
+
+function randHeroImg($previous) {
+    $images = ['hero1', 'hero2', 'hero3'];
+
+    $previous = array_search($previous, $images);
+
+    unset($images[$previous]);
+    $images = array_values($images);
+
+    $i = rand(0, (count($images) - 1));
+
+    return $images[$i];
+}
+do {
+    $selected = randHeroImg($_SESSION['selected']);
+} while ($selected == $_SESSION['selected']);
+
+$_SESSION['selected'] = $selected;
+
+
+
+?>
+
+
+<main class="hero" style="background: url(<?php echo $path . 'assets/images/' . $selected . '.jpg'; ?>) no-repeat center center fixed;">
     <div class="container">
 
         <div class="hero-title">
