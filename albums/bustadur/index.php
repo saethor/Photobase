@@ -14,7 +14,7 @@ require_once '../../app/init.php';
     <meta name="author" content="">
     <link rel="icon" href="">
 
-    <title>Albums</title>
+    <title><?php echo $title; ?></title>
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link href="<?php echo $path; ?>assets/stylesheets/main.css" rel="stylesheet">
@@ -23,40 +23,7 @@ require_once '../../app/init.php';
 
 <body>
 
-    <div class="navbar-wrapper">
-        <div class="container">
-
-            <nav class="navbar navbar-default">
-                <div class="container">
-
-
-                    <div class="navbar-header">
-                        <button type="button" class="toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                            <span class="sr-only">Toggle navigation</span>
-                            Menu
-                        </button>
-                        <a class="navbar-brand" href="#">Photobase</a>
-                    </div>
-
-
-                    <div id="navbar" class="navbar-collapse collapse navbar-right">
-
-                        <ul class="nav navbar-nav">
-                            <li><a href="<?php echo $path; ?>">Home</a>
-                            </li>
-                            <li class="active"><a href="<?php echo $path; ?>albums">Albums</a>
-                            </li>
-                            <li><a href="#contact">Contact</a>
-                            </li>
-                        </ul>
-
-                    </div>
-
-
-                </div>
-            </nav>
-        </div>
-    </div>
+    <?php include '../../includes/nav.inc.php'; ?>
 
     <main class="hero">
         <div class="container">
