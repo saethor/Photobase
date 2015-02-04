@@ -2,8 +2,9 @@
     <div class="container">
 
         <div class="hero-title">
-            <h1>Web album</h1>
+            <h1><?php echo $heroTitle; ?></h1>
         </div>
+
 
         <div class="hero-footer">
 

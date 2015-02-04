@@ -2,6 +2,8 @@
 
 require_once '../app/init.php';
 
+$heroTitle = $title;
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +16,7 @@ require_once '../app/init.php';
     <link rel="icon" href="">
 
     <title><?php echo $title; ?></title>
-    
+
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link href="<?php echo $path; ?>assets/stylesheets/main.css" rel="stylesheet">
 
@@ -24,42 +26,7 @@ require_once '../app/init.php';
 
     <?php require '../includes/nav.inc.php'; ?>
 
-    <main class="hero">
-        <div class="container">
-
-            <div class="hero-title">
-                <h1>Albums</h1>
-            </div>
-
-
-            <div class="hero-footer">
-
-                <div class="social-icons">
-                    <a href="https://facebook.com/saethor94" target="_blank" class="social-icon">
-                        <i class="fa fa-facebook"></i>
-                    </a>
-                    <a href="https://twitter.com/saethor94" target="_blank" class="social-icon">
-                        <i class="fa fa-twitter"></i>
-                    </a>
-                    <a href="https://plus.google.com/u/0/+S%C3%A6%C3%BE%C3%B3rHallgr%C3%ADmsson/" target="_blank" class="social-icon">
-                        <i class="fa fa-google-plus"></i>
-                    </a>
-                    <a href="https://github.com/saethor" target="_blank" class="social-icon">
-                        <i class="fa fa-github"></i>
-                    </a>
-                </div>
-
-                <div class="scroll">
-                    <a href="#section-album"><i class="fa fa-angle-double-down"></i></a>
-                </div>
-
-            </div>
-
-        </div>
-    </main>
-    <!-- /.Hero -->
-
-
+    <?php include '../includes/hero.inc.php'; ?>
 
     <section class="section-album" id="section-album">
 
@@ -69,7 +36,7 @@ require_once '../app/init.php';
                 <img class="img-circle" src="<?php echo $path; ?>assets/images/london.jpg" alt="London 2014 Album" width="140" height="140">
                 <h2>London 2014</h2>
                 <p>Skelltum okkur til London um páskana 2014 þar sem orlofið var nýtt vel í misgáfaða hluti</p>
-                <p><a class="btn btn-default" href="<?php echo $path; ?>albums/london/" role="button">Skoða albúm &raquo;</a>
+                <p><a class="btn btn-default" href="<?php echo $path; ?>albums/london_2014/" role="button">Skoða albúm &raquo;</a>
                 </p>
             </div>
 
@@ -77,7 +44,7 @@ require_once '../app/init.php';
                 <img class="img-circle" src="<?php echo $path; ?>assets/images/krit.jpg" alt="Krít 2013 Album" width="140" height="140">
                 <h2>Krít 2013</h2>
                 <p>Notuðum tækifærið að slappa aðeins af á grískueyjunni Krít áður en alvaran í Reykjavík verð að veruleika og langt og strangt frystihúsasumar var á enda.</p>
-                <p><a class="btn btn-default" href="<?php echo $path; ?>albums/krit/" role="button">Skoða albúm &raquo;</a>
+                <p><a class="btn btn-default" href="<?php echo $path; ?>albums/krit_2013/" role="button">Skoða albúm &raquo;</a>
                 </p>
             </div>
 
@@ -85,7 +52,7 @@ require_once '../app/init.php';
                 <img class="img-circle" src="<?php echo $path; ?>assets/images/bustadur.jpg" alt="Bústaðarferð 2013 Album" width="140" height="140">
                 <h2>Bústaður 2013</h2>
                 <p>Bústaðarferð rétt fyrir utan laugarvatn með Ragnheiði og Braga í febrúar 2013.</p>
-                <p><a class="btn btn-default" href="<?php echo $path; ?>albums/bustadur/" role="button">Skoða albúm &raquo;</a>
+                <p><a class="btn btn-default" href="<?php echo $path; ?>albums/bustadur_2013/" role="button">Skoða albúm &raquo;</a>
                 </p>
             </div>
 
