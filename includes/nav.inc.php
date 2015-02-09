@@ -1,5 +1,5 @@
 <?php
-$dirname = basename(dirname($_SERVER['PHP_SELF'])); 
+$dirname = basename(dirname($_SERVER['PHP_SELF']));
 ?>
 
 <div class="navbar-wrapper">
@@ -23,7 +23,7 @@ $dirname = basename(dirname($_SERVER['PHP_SELF']));
                     <ul class="nav navbar-nav">
                         <li <?php echo ($dirname == 'Photobase') ? 'class="active"' : ''; ?> ><a href="<?php echo $path; ?>">Home</a>
                         </li>
-                        <li <?php echo ($dirname == 'albums') ? 'class="active"' : ''; ?> ><a href="<?php echo $path; ?>albums">Albums</a>
+                        <li <?php echo (($dirname == 'albums') || ($dirname == 'london_2014') || ($dirname == 'krit_2013') || ($dirname == 'bustadur_2013')) ? 'class="active"' : ''; ?> ><a href="<?php echo $path; ?>albums">Albums</a>
                         </li>
                         <li><a href="#contact">Contact</a>
                         </li>
