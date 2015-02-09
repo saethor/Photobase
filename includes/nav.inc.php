@@ -25,7 +25,7 @@ $dirname = basename(dirname($_SERVER['PHP_SELF']));
                         </li>
                         <li <?php echo (($dirname == 'albums') || ($dirname == 'london_2014') || ($dirname == 'krit_2013') || ($dirname == 'bustadur_2013')) ? 'class="active"' : ''; ?> ><a href="<?php echo $path; ?>albums">Albums</a>
                         </li>
-                        <li><a href="#contact">Contact</a>
+                        <li <?php echo ($dirname == 'categories') ? 'class="active"' : ''; ?>><a href="categories">Categories</a>
                         </li>
                     </ul>
 
