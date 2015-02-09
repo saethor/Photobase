@@ -14,7 +14,7 @@ $dirname = basename(dirname($_SERVER['PHP_SELF']));
                         <span class="sr-only">Toggle navigation</span>
                         Menu
                     </button>
-                    <a class="navbar-brand" href="#">Photobase</a>
+                    <a class="navbar-brand" href="<?php echo $path ?>">Photobase</a>
                 </div>
 
 
