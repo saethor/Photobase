@@ -1,23 +1,28 @@
 <?php
 
-function randHeroImg($previous) {
-    $images = ['hero1', 'hero2', 'hero3'];
+// Random image generator. Currently not working because of cache problem
 
-    $previous = array_search($previous, $images);
+// Array containinc the images
+$heroImages = ['hero1', 'hero2', 'hero3'];
 
-    unset($images[$previous]);
-    $images = array_values($images);
+// Checks if random image have been generated before
+if(isset($_SESSION['lastUsedHero'])) {
 
-    $i = rand(0, (count($images) - 1));
+    $last = $_SESSION['lastUsedHero'];
+    $selected;
 
-    return $images[$i];
+    do {
+
+        $selected = $heroImages[(rand(0, (count($heroImages) - 1) ))];
+
+    } while ($selected == $last);
+
 }
-do {
-    $selected = randHeroImg($_SESSION['selected']);
-} while ($selected == $_SESSION['selected']);
+else {
+    $selected = $heroImages[0];
+}
 
-$_SESSION['selected'] = $selected;
-
+$_SESSION['lastUsedHero'] = $selected;
 
 
 ?>
