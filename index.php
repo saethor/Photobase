@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 require_once 'app/init.php';
 
 $heroTitle = "Web Album";
@@ -9,6 +10,7 @@ $heroTitle = "Web Album";
 <html lang="en">
 
 <head>
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">

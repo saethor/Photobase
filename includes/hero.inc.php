@@ -1,28 +1,25 @@
 <?php
+echo session_cache_limiter();
 
-// Random image generator. Currently not working because of cache problem
+echo $_COOKIE['selected'];
 
-// Array containinc the images
 $heroImages = ['hero1', 'hero2', 'hero3'];
 
-// Checks if random image have been generated before
-if(isset($_SESSION['lastUsedHero'])) {
-
-    $last = $_SESSION['lastUsedHero'];
-    $selected;
+if (isset($_COOKIE['selected'])) {
 
     do {
 
-        $selected = $heroImages[(rand(0, (count($heroImages) - 1) ))];
+        $i = rand(0, (count($heroImages) - 1));
 
-    } while ($selected == $last);
+        $selected = $heroImages[$i];
 
-}
-else {
+    } while ($selected == $_COOKIE['selected']);
+
+} else {
     $selected = $heroImages[0];
 }
 
-$_SESSION['lastUsedHero'] = $selected;
+setcookie('selected', $selected);
 
 
 ?>
