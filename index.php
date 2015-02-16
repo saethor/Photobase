@@ -1,9 +1,25 @@
 <?php
 
-session_start();
 require_once 'app/init.php';
-
+session_start();
 $heroTitle = "Web Album";
+
+$heroImages = ['hero1', 'hero2', 'hero3'];
+
+if (!isset($_SESSION['selected'])) {
+
+    $_SESSION['selected'] = -1;
+
+}
+
+do {
+
+    $i = array_rand($heroImages);
+    $selected = $heroImages[$i];
+
+} while ($selected == $_SESSION['selected']);
+
+$_SESSION['selected'] = $selected;
 
 ?>
 <!DOCTYPE html>

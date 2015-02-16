@@ -1,27 +1,3 @@
-<?php
-
-/* Af eitthvejrum óútskýranlegum ástæðum þá fæ ég ekki sessionið til þess að virka rétt */
-
-$heroImages = ['hero1', 'hero2', 'hero3'];
-
-if (isset($_SESSION['selected'])) {
-
-    do {
-
-        $i = array_rand($heroImages);
-        $selected = $heroImages[$i];
-
-    } while ($selected == $_SESSION['selected']);
-
-} else {
-    $selected = $heroImages[0];
-}
-
-$_SESSION['selected'] = $selected;
-
-?>
-
-
 <main class="hero" style="background: url(<?php echo $path . 'assets/images/' . $selected . '.jpg'; ?>) no-repeat center center fixed;">
     <div class="container">
 
