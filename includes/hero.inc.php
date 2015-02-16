@@ -1,26 +1,23 @@
 <?php
-echo session_cache_limiter();
 
-echo $_COOKIE['selected'];
+/* Af eitthvejrum óútskýranlegum ástæðum þá fæ ég ekki sessionið til þess að virka rétt */
 
 $heroImages = ['hero1', 'hero2', 'hero3'];
 
-if (isset($_COOKIE['selected'])) {
+if (isset($_SESSION['selected'])) {
 
     do {
 
-        $i = rand(0, (count($heroImages) - 1));
-
+        $i = array_rand($heroImages);
         $selected = $heroImages[$i];
 
-    } while ($selected == $_COOKIE['selected']);
+    } while ($selected == $_SESSION['selected']);
 
 } else {
     $selected = $heroImages[0];
 }
 
-setcookie('selected', $selected);
-
+$_SESSION['selected'] = $selected;
 
 ?>
 
