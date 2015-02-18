@@ -1,44 +1,60 @@
-<main class="hero" style="background: url(<?php echo $path . 'assets/images/' . $selected . '.jpg'; ?>) no-repeat center center fixed;">
+<main class="hero" style="background: url(<?php echo $path . 'assets/images/' . $selected . '.jpg'; ?>) no-repeat center center fixed; background-size: cover; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover;">
     <div class="container">
 
         <?php if ($dirname == 'login'): ?>
+
+            
             <section class="section-contact" id="section-contact">
 
                 <div class="row">
+
+                    
+                    <?php if ($missing || $errors): 
+                    // Alerts the user if missing field or error with a red banner
+                    ?>
+                    <div class="alert alert-danger" role="alert">
+                        <p class="warning">Plese fix the item(s) indicated.</p>
+                    </div>
+
+                    <?php endif; ?>
+
                     <h2 class="section-title">Register</h2>
-                    <form class="contact">
+                    
+                    <form class="contact" action="" method="post">
                         <div class="col-md-6 form-group">
-                            <input type="text" id="firstname" class="form-control">
+                            <input type="text" id="firstname" name="firstname" class="form-control">
                             <label for="firstname">Firstname</label>
                         </div>
                         <div class="col-md-6 form-group">
-                            <input type="text" id="lastname" class="form-control">
+                            <input type="text" id="lastname" name="lastname" class="form-control">
                             <label for="lastname">Lastname</label>
                         </div>
                         <div class="col-md-6 form-group">
-                            <input type="text" id="username" class="form-control">
+                            <input type="text" id="username" name="username" class="form-control">
                             <label for="username">Username</label>
                         </div>
                         <div class="col-md-6 form-group">
-                            <input type="email" id="email" class="form-control">
+                            <input type="email" id="email" name="email" class="form-control">
                             <label for="email">Email</label>
                         </div>
                         <div class="col-md-6 form-group">
-                            <input type="password" id="password" class="form-control">
+                            <input type="password" id="password" name="password" class="form-control">
                             <label for="password">Your Password</label>
                         </div>
                         <div class="col-md-6 form-group">
-                            <input type="password" id="password_again" class="form-control">
+                            <input type="password" id="password_again" name="password_again" class="form-control">
                             <label for="password">Your Password Again</label>
                         </div>
                         <div class="col-md-12 form-group">
-                            <input type="submit" class="form-control">
+                            <input type="submit" name="register" class="form-control">
                         </div>
                     </form>
+
                 </div>
             </section>
 
             <section class="section-contact" id="section-contact">
+
                 <div class="row">
                     <h2 class="section-title">Login</h2>        
                     <form class="contact">
@@ -54,18 +70,13 @@
                             <input type="submit" class="form-control">
                         </div>
                     </form>
-
                 </div>
 
             </section>
         <?php else: ?>
         <div class="hero-title">
-
             <h1><?php echo $heroTitle; ?></h1>
         </div>
-
-        <?php endif; ?>
-
 
         <div class="hero-footer">
 
@@ -89,7 +100,7 @@
             </div>
 
         </div>
-
+        <?php endif; ?>
     </div>
 </main>
 <!-- /.Hero -->

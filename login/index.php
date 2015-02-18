@@ -1,6 +1,24 @@
-<?php
 
+<?php
+/*
+    LOGIN FORM
+*/
 require_once '../app/init.php';
+
+
+$errors = [];
+$missing = [];
+if (isset($_POST['register'])) {
+
+    // Expected fields, processing only expected variables so attacker can't inject other variables into the $_POST array.
+    $expected = ['firstname', 'lastname', 'username', 'email', 'password', 'password_again'];
+
+    // Required fields
+    $required = ['firstname', 'username', 'email', 'password', 'password_again'];
+    require '../includes/validationcheck.php';
+
+}
+
 
 $heroTitle = $title;
 
