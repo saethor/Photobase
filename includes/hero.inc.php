@@ -8,8 +8,12 @@
 
                 <div class="row">
 
-                    
-                    <?php if ($missing || $errors): 
+                    <?php if ($_POST && $suspect): ?>
+                        <div class="alert alert-danger" role="alert">
+                            <p class="warning">Sorry, your mail could not be sent.
+                            Please try later.</p>
+                        </div>
+                    <?php elseif ($missing || $errors): 
                     // Alerts the user if missing field or error with a red banner
                     ?>
                     <div class="alert alert-danger" role="alert">
