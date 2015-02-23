@@ -21,29 +21,79 @@
                     <h2 class="section-title">Register</h2>
                     
                     <form class="contact" action="" method="post">
+
                         <div class="col-md-6 form-group">
-                            <input type="text" id="firstname" name="firstname" class="form-control">
-                            <label for="firstname">Firstname</label>
+                            <input type="text" id="firstname" name="firstname" class="form-control" 
+                            <?php if ($missing || $errors) echo 'value="' . htmlentities($firstname) . '"'; ?>
+                            >
+                            <label for="firstname">
+                                <?php if ($missing && in_array('firstname', $missing)): ?>
+                                    <span class="warning">Please enter your firstname</span>
+                                <?php else: ?>
+                                    Firstname
+                                <?php endif; ?>
+                            </label>
                         </div>
+
                         <div class="col-md-6 form-group">
-                            <input type="text" id="lastname" name="lastname" class="form-control">
-                            <label for="lastname">Lastname</label>
+                            <input type="text" id="lastname" name="lastname" class="form-control"
+                            <?php if ($missing || $errors) echo 'value="' . htmlentities($lastname) . '"'; ?>
+                            >
+                            <label for="lastname">
+                                <?php if ($missing && in_array('lastname', $missing)): ?>
+                                    <span class="warning">Please enter your lastname</span>
+                                <?php else: ?>
+                                    Lastname
+                                <?php endif ?>
+                            </label>
                         </div>
+
                         <div class="col-md-6 form-group">
-                            <input type="text" id="username" name="username" class="form-control">
-                            <label for="username">Username</label>
+                            <input type="text" id="username" name="username" class="form-control"
+                            <?php if ($missing || $errors) echo 'value="' . htmlentities($username) . '"'; ?>
+                            >
+                            <label for="username">
+                                <?php if ($missing && in_array('username', $missing)): ?>
+                                    <span class="warning">Please choose your username</span>
+                                <?php else: ?>
+                                    Username
+                                <?php endif ?>
+                            </label>
                         </div>
+
                         <div class="col-md-6 form-group">
-                            <input type="email" id="email" name="email" class="form-control">
-                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" class="form-control"
+                            <?php if ($missing || $errors) echo 'value="' . htmlentities($email) . '"'; ?>
+                            >
+                            <label for="email">
+                                <?php if ($missing && in_array('email', $missing)): ?>
+                                    <span class="warning">Please enter your email address</span>
+                                <?php else: ?>
+                                    Email
+                                <?php endif ?>
+                            </label>
                         </div>
+
                         <div class="col-md-6 form-group">
                             <input type="password" id="password" name="password" class="form-control">
-                            <label for="password">Your Password</label>
+                            <label for="password">
+                                <?php if ($missing && in_array('password', $missing)): ?>
+                                    <span class="warning">Please enter your password of choose</span>
+                                <?php else: ?>
+                                    Your Password
+                                <?php endif ?>
+                            </label>
                         </div>
+
                         <div class="col-md-6 form-group">
                             <input type="password" id="password_again" name="password_again" class="form-control">
-                            <label for="password">Your Password Again</label>
+                            <label for="password">
+                                <?php if ($missing && in_array('password_again', $missing)): ?>
+                                    <span class="warning">Please enter your password again</span>
+                                <?php else: ?>
+                                    Your Password Again
+                                <?php endif ?>
+                            </label>
                         </div>
                         <div class="col-md-12 form-group">
                             <input type="submit" name="register" class="form-control">
