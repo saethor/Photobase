@@ -1,5 +1,5 @@
-
 <?php
+
 /*
     LOGIN FORM
 */
@@ -11,10 +11,10 @@ $missing = [];
 if (isset($_POST['register'])) {
 
     // Expected fields, processing only expected variables so attacker can't inject other variables into the $_POST array.
-    $expected = ['firstname', 'lastname', 'username', 'email', 'password', 'password_again'];
+    $expected = ['firstname', 'lastname', 'username', 'email', 'password', 'password_again', 'howHear'];
 
     // Required fields
-    $required = ['firstname', 'username', 'email', 'password', 'password_again'];
+    $required = ['firstname', 'username', 'email', 'password', 'password_again', 'howHear'];
     require '../includes/validationcheck.php';
 
 }
@@ -59,13 +59,13 @@ $heroTitle = $title;
 
                 var text_val = $(this).val();
 
-            });
+                if(text_val === "") {
+                    $(this).removeClass('has-value');
+                } else {
+                    $(this).addClass('has-value');
+                }
 
-            if(text_val === "") {
-                $(this).removeClass('has-value');
-            } else {
-                $(this).addClass('has-value');
-            }
+            });
 
         });
     </script>
