@@ -128,7 +128,8 @@ require_once 'app/init.php';
 
     </section>
 
-    <?php include 'includes/footer.inc.php'; ?>
+    <?php include 'includes/footer.inc.php';
+    ?>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
