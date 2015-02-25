@@ -92,6 +92,45 @@
                                 <?php endif ?>
                             </label>
                         </div>
+
+                        <div class="col-md-12 form-group">
+                            <?php if ($missing && in_array('howHear', $missing)): ?>
+                                <div class="alert alert-danger" role="alert">
+                                <span class="warning">Please make a selection</span>
+                                    
+                                </div> 
+                            <?php else: ?>
+                                <p>How did your hear about us?</p>
+                            <?php endif ?>
+                            <select name="howHear" id="howHear" class="form-control">
+                                <option value=""
+                                    <?php 
+                                    if (!$_POST || $_POST['howHear'] == '') echo 'selected';
+                                    ?>>
+                                    Select one
+                                </option>
+                                <option value="Google"
+                                    <?php 
+                                    if (isset($_POST['howHear']) && $_POST['howHear'] == 'Google') echo 'selected';
+                                    ?>>
+                                    Google
+                                </option>
+                                <option value="Facebook"
+                                    <?php 
+                                    if (isset($_POST['howHear']) && $_POST['howHear'] == 'Facebook') echo 'selected';
+                                    ?>>
+                                    Facebook
+                                </option>
+                                <option value="Twitter"
+                                    <?php 
+                                    if (isset($_POST['howHear']) && $_POST['howHear'] == 'Twitter') echo 'selected';
+                                    ?>>
+                                    Twitter
+                                </option>
+                            </select>
+
+                        </div>
+
                         <div class="col-md-12 form-group">
                             <input type="submit" name="register" class="form-control">
                         </div>
@@ -104,13 +143,13 @@
 
                 <div class="row">
                     <h2 class="section-title">Login</h2>        
-                    <form class="contact">
+                    <form class="contact" method="post" action="<?php echo $path ?>sessions/login.php">
                         <div class="col-md-6 form-group">
-                            <input type="text" id="name" class="form-control">
-                            <label for="name">Your Username</label>
+                            <input type="text" name="username" id="username" class="form-control">
+                            <label for="username">Your Username</label>
                         </div>
                         <div class="col-md-6 form-group">
-                            <input type="password" id="password" class="form-control">
+                            <input type="password" name="password" id="password" class="form-control">
                             <label for="password">Your Password</label>
                         </div>
                         <div class="col-md-12 form-group">
