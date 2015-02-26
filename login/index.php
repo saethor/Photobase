@@ -3,18 +3,43 @@
 /*
     LOGIN FORM
 */
+
+use Photobase\Authenticate\CheckPassword;
+
 require_once '../app/init.php';
 
+// Script to register a user
+if (isset($_POST['register'])) {
+    
+    $username   = trim($_POST['username']);
+    $password   = trim($_POST['pwd']);
+    $retype     = trim($_POST['conf_pwd']);
+    
+    require_once '../Authenticate/CheckPassword.php';
+
+    $checkPwd = new CheckPassword($password);
+    $checkPwd->requireMixedCase();
+    $checkPwd->requireNumbers(2);
+    $checkPwd->requireSymbols();
+    $passwordOK = $checkPwd->check();
+
+    if($passwordOK) {
+        $result = ['Password OK'];
+    } else {
+        $result = $checkPwd->getErrors();
+    }
+
+}
 
 $errors = [];
 $missing = [];
 if (isset($_POST['register'])) {
 
     // Expected fields, processing only expected variables so attacker can't inject other variables into the $_POST array.
-    $expected = ['firstname', 'lastname', 'username', 'email', 'password', 'password_again', 'howHear'];
+    $expected = ['firstname', 'lastname', 'username', 'email', 'pwd', 'conf_pwd', 'howHear'];
 
     // Required fields
-    $required = ['firstname', 'username', 'email', 'password', 'password_again', 'howHear'];
+    $required = ['firstname', 'username', 'email', 'pwd', 'conf_pwd', 'howHear'];
     require '../includes/validationcheck.php';
 
 }

@@ -16,7 +16,15 @@
                     <?php endif; ?>
 
                     <h2 class="section-title">Register</h2>
-                    
+                    <?php 
+                    if (isset($result)) {
+                        echo '<ul class="alert alert-danger" role="alert">';
+                        foreach ($result as $item) {
+                            echo "<li>{$item}</li>";
+                        }
+                        echo '</ul>';
+                    }
+                    ?>
                     <form class="contact" action="" method="post">
 
                         <div class="col-md-6 form-group">
@@ -72,9 +80,9 @@
                         </div>
 
                         <div class="col-md-6 form-group">
-                            <input type="password" id="password" name="password" class="form-control">
-                            <label for="password">
-                                <?php if ($missing && in_array('password', $missing)): ?>
+                            <input type="password" id="pwd" name="pwd" class="form-control">
+                            <label for="pwd">
+                                <?php if ($missing && in_array('pwd', $missing)): ?>
                                     <span class="warning">Please enter your password of choose</span>
                                 <?php else: ?>
                                     Your Password
@@ -83,9 +91,9 @@
                         </div>
 
                         <div class="col-md-6 form-group">
-                            <input type="password" id="password_again" name="password_again" class="form-control">
-                            <label for="password">
-                                <?php if ($missing && in_array('password_again', $missing)): ?>
+                            <input type="password" id="conf_pwd" name="conf_pwd" class="form-control">
+                            <label for="conf_pwd">
+                                <?php if ($missing && in_array('conf_pwd', $missing)): ?>
                                     <span class="warning">Please enter your password again</span>
                                 <?php else: ?>
                                     Your Password Again
