@@ -9,31 +9,13 @@ use Photobase\Authenticate\CheckPassword;
 require_once '../app/init.php';
 
 // Script to register a user
-if (isset($_POST['register'])) {
-    
-    $username   = trim($_POST['username']);
-    $password   = trim($_POST['pwd']);
-    $retype     = trim($_POST['conf_pwd']);
-    
-    require_once '../Authenticate/CheckPassword.php';
-
-    $checkPwd = new CheckPassword($password);
-    $checkPwd->requireMixedCase();
-    $checkPwd->requireNumbers(2);
-    $checkPwd->requireSymbols();
-    $passwordOK = $checkPwd->check();
-
-    if($passwordOK) {
-        $result = ['Password OK'];
-    } else {
-        $result = $checkPwd->getErrors();
-    }
-
-}
-
-$errors = [];
-$missing = [];
-if (isset($_POST['register'])) {
+if (isset($_POST['register'])) 
+{
+    $username = trim($_POST['username']);
+    $password = trim($_POST['pwd']);
+    $retyped = trim($_POST['conf_pwd']);
+    $userfile = '../sessions/encrypted.csv';
+    require_once '../includes/register_user_csv.php';
 
     // Expected fields, processing only expected variables so attacker can't inject other variables into the $_POST array.
     $expected = ['firstname', 'lastname', 'username', 'email', 'pwd', 'conf_pwd', 'howHear'];
@@ -43,6 +25,11 @@ if (isset($_POST['register'])) {
     require '../includes/validationcheck.php';
 
 }
+
+    $errors = [];
+    $missing = [];
+    $result;
+
 
 
 $heroTitle = $title;

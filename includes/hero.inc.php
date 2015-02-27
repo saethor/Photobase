@@ -7,20 +7,30 @@
             <section class="section-contact" id="section-contact">
 
                 <div class="row">
-                        
-                    <?php if ($missing || $errors): // Alerts the user if missing field or error with a red banner ?>
+                    <!--     
+                    <?php //if ($missing || $errors): // Alerts the user if missing field or error with a red banner ?>
                     <div class="alert alert-danger" role="alert">
                         <p class="warning">Plese fix the item(s) indicated.</p>
                     </div>
 
-                    <?php endif; ?>
-
+                    <?php //endif; ?>
+ -->
                     <h2 class="section-title">Register</h2>
-                    <?php 
-                    if (isset($result)) {
+                    <?php
+                    if (isset($result) || isset($errors) && !empty($result))
+                    {
                         echo '<ul class="alert alert-danger" role="alert">';
-                        foreach ($result as $item) {
-                            echo "<li>{$item}</li>";
+                        if (!empty($errors))
+                        {
+                            foreach ($errors as $item) 
+                            {
+                                echo "<li>{$item}</li>";
+                            }
+                        }
+                        else 
+                        {
+                            if (!empty($result))
+                            echo "<li>{$result}</li>";
                         }
                         echo '</ul>';
                     }
