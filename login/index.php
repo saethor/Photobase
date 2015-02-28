@@ -8,6 +8,10 @@ use Photobase\Authenticate\CheckPassword;
 
 require_once '../app/init.php';
 
+$validationErrors = [];
+$missing = [];
+$error = '';
+
 // Script to register a user
 if (isset($_POST['register'])) 
 {
@@ -25,12 +29,19 @@ if (isset($_POST['register']))
     require '../includes/validationcheck.php';
 
 }
+if (isset($_POST['login']))
+{
+    $username = $_POST['username'];
+    $password = $_POST['pwd'];
 
-    $errors = [];
-    $missing = [];
-    $result;
+    // location of usernames and passwords
+    $userlist = '../sessions/encrypted.csv';
 
+    // location to redirect on success
+    $redirect = 'http://localhost/photobase/sessions/menu.php';
 
+    require_once '../includes/authenticate.php';
+}
 
 $heroTitle = $title;
 

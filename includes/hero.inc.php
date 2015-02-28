@@ -2,24 +2,60 @@
     <div class="container">
 
         <?php if ($dirname == 'login'): ?>
+            <!-- LOGIN SECTION -->
+            <section class="section-contact" id="section-contact">
 
+                <div class="row">                        
+
+                    <h2 class="section-title">Login</h2>     
+                    
+                    <?php if ($error): ?>
+                    <div class="alert alert-danger" role="alert">
+                        <p><?php echo $error ?></p>
+                    </div>
+                    <?php elseif (isset($_GET['expired'])): ?>
+                    <div class="alert alert-warning" role="alert">
+                        <p>Your session has expired. Please log in again</p>                        
+                    </div>
+                    <?php endif ?>
+
+                    <form class="contact" method="post" action="">
+                        
+                        <div class="col-md-6 form-group">
+                            <input type="text" name="username" id="username" class="form-control">
+                            <label for="username">Your Username</label>
+                        </div>
+                        
+                        <div class="col-md-6 form-group">
+                            <input type="password" name="pwd" id="pwd" class="form-control">
+                            <label for="pwd">Your Password</label>
+                        </div>
+                       
+                        <div class="col-md-12 form-group">
+                            <input type="submit" name="login" class="form-control">
+                        </div>
+                    </form>
+                </div>
+            </section>
             
+            <!-- REGISTER SECTION -->
             <section class="section-contact" id="section-contact">
 
                 <div class="row">
-                    <!--     
-                    <?php //if ($missing || $errors): // Alerts the user if missing field or error with a red banner ?>
-                    <div class="alert alert-danger" role="alert">
+   
+                    <?php //if ($missing || $validationErrors): // Alerts the user if missing field or error with a red banner ?>
+                  <!--   <div class="alert alert-danger" role="alert">
                         <p class="warning">Plese fix the item(s) indicated.</p>
-                    </div>
+                    </div> -->
 
                     <?php //endif; ?>
- -->
+
                     <h2 class="section-title">Register</h2>
                     <?php
-                    if (isset($result) || isset($errors) && !empty($result))
+                    if (isset($result) || isset($errors))
                     {
                         echo '<ul class="alert alert-danger" role="alert">';
+
                         if (!empty($errors))
                         {
                             foreach ($errors as $item) 
@@ -39,7 +75,7 @@
 
                         <div class="col-md-6 form-group">
                             <input type="text" id="firstname" name="firstname" class="form-control" 
-                            <?php if ($missing || $errors) echo 'value="' . htmlentities($firstname) . '"'; ?>
+                            <?php if ($missing || $validationErrors) echo 'value="' . htmlentities($firstname) . '"'; ?>
                             >
                             <label for="firstname">
                                 <?php if ($missing && in_array('firstname', $missing)): ?>
@@ -52,7 +88,7 @@
 
                         <div class="col-md-6 form-group">
                             <input type="text" id="lastname" name="lastname" class="form-control"
-                            <?php if ($missing || $errors) echo 'value="' . htmlentities($lastname) . '"'; ?>
+                            <?php if ($missing || $validationErrors) echo 'value="' . htmlentities($lastname) . '"'; ?>
                             >
                             <label for="lastname">
                                 <?php if ($missing && in_array('lastname', $missing)): ?>
@@ -65,7 +101,7 @@
 
                         <div class="col-md-6 form-group">
                             <input type="text" id="username" name="username" class="form-control"
-                            <?php if ($missing || $errors) echo 'value="' . htmlentities($username) . '"'; ?>
+                            <?php if ($missing || $validationErrors) echo 'value="' . htmlentities($username) . '"'; ?>
                             >
                             <label for="username">
                                 <?php if ($missing && in_array('username', $missing)): ?>
@@ -78,7 +114,7 @@
 
                         <div class="col-md-6 form-group">
                             <input type="email" id="email" name="email" class="form-control"
-                            <?php if ($missing || $errors) echo 'value="' . htmlentities($email) . '"'; ?>
+                            <?php if ($missing || $validationErrors) echo 'value="' . htmlentities($email) . '"'; ?>
                             >
                             <label for="email">
                                 <?php if ($missing && in_array('email', $missing)): ?>
@@ -123,7 +159,7 @@
                             <select name="howHear" id="howHear" class="form-control">
                                 <option value=""
                                     <?php 
-                                    if (!$_POST || $_POST['howHear'] == '') echo 'selected';
+                                    if (!$_POST || (isset($_POST['howHear']) && $_POST['howHear'] == '')) echo 'selected';
                                     ?>>
                                     Select one
                                 </option>
@@ -157,26 +193,6 @@
                 </div>
             </section>
 
-            <section class="section-contact" id="section-contact">
-
-                <div class="row">
-                    <h2 class="section-title">Login</h2>        
-                    <form class="contact" method="post" action="<?php echo $path ?>sessions/login.php">
-                        <div class="col-md-6 form-group">
-                            <input type="text" name="username" id="username" class="form-control">
-                            <label for="username">Your Username</label>
-                        </div>
-                        <div class="col-md-6 form-group">
-                            <input type="password" name="password" id="password" class="form-control">
-                            <label for="password">Your Password</label>
-                        </div>
-                        <div class="col-md-12 form-group">
-                            <input type="submit" class="form-control">
-                        </div>
-                    </form>
-                </div>
-
-            </section>
         <?php else: ?>
         <div class="hero-title">
             <h1><?php echo $heroTitle; ?></h1>
