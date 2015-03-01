@@ -30,9 +30,15 @@ $dirname = basename(dirname($_SERVER['PHP_SELF']));
                         <li <?php echo ($dirname == 'categories') ? 'class="active"' : ''; ?>>
                             <a href="<?php echo $path; ?>categories">Categories</a>
                         </li>
-                        <li <?php echo ($dirname == 'login') ? 'class="active"' : ''; ?>>
-                            <a href="<?php echo $path ?>login">Login</a>
-                        </li>
+                        <?php if (isset($_SESSION['authenticated'])): ?>
+                            <li>
+                                <a href="<?php echo $path . 'includes/logout.php'; ?>">Logout</a>
+                            </li>
+                        <?php else: ?>
+                            <li <?php echo ($dirname == 'login') ? 'class="active"' : ''; ?>>
+                                <a href="<?php echo $path ?>login">Login</a>
+                            </li>
+                        <?php endif ?>
                     </ul>
 
                 </div>
