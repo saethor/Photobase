@@ -192,11 +192,12 @@
 
                 </div>
             </section>
-
+            
         <?php else: ?>
         <div class="hero-title">
             <h1><?php echo $heroTitle; ?></h1>
         </div>
+        
 
         <div class="hero-footer">
 
