@@ -10,7 +10,7 @@ if (isset($_POST['logout'])) {
 
     // end session and redirect
     session_destroy();
-    header('Location: http://localhost/Photobase/sessions/login.php');
+    header('Location: http://localhost/Photobase/login/');
     exit;
 }
 ?>

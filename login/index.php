@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 /*
     LOGIN FORM
 */
@@ -38,7 +38,7 @@ if (isset($_POST['login']))
     $userlist = '../sessions/encrypted.csv';
 
     // location to redirect on success
-    $redirect = 'http://localhost/photobase/sessions/menu.php';
+    $redirect = 'http://localhost/photobase/user/';
 
     require_once '../includes/authenticate.php';
 }

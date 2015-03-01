@@ -12,7 +12,7 @@ $title = ucwords($title);
 
 $heroTitle = "Web Album";
 
-session_start();
+// session_start();
 ob_start();
 
 $heroImages = ['hero1', 'hero2', 'hero3'];
