@@ -1,6 +1,6 @@
 <footer class="text-center">
     <p>
-        &copy;
+        &copy;Photobase
         <?php
         $startYear = 2012;
         $thisYear = date('Y');
