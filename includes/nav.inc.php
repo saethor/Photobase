@@ -5,7 +5,7 @@ $dirname = basename(dirname($_SERVER['PHP_SELF']));
 <div class="navbar-wrapper">
     <div class="container">
 
-        <nav class="navbar navbar-default">
+        <nav class="navbar navbar-default <?php echo ($dirname == 'user') ? 'user' : ''; ?>">
             <div class="container">
 
 
