@@ -1,6 +1,9 @@
 <?php 
 require_once '../app/init.php';
-require_once '../includes/session_timeout.php';
+// require_once '../includes/session_timeout.php';
+
+$user = new User();
+$user->isLoggedIn();
 
 ?>
 <!DOCTYPE html>
