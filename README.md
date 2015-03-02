@@ -19,9 +19,9 @@ Bættu við myndum og upplýsingum handvirkt í gagnagrunninn til að vinna með
 4. Hafðu amk einn Multiple-Choice valkost í skráningarforminu þínu; radio button, check box, drop-down, multiple-choice. Ein hugmynd er t.d. hafa spurninguna „Hvar fréttir þú af þessari heimasíðu með drop-box“ Sjá Solution 5-6 til 5-10. (2%)
 Login og logout (3%)
 5. 
-  *. Búið til logout takka sem eyðir session sbr. PHP Solution 9-5
-  *. Session á að eyðast eftir ákveðin tíma (óvirkur) sbr. PHP Solution 9-9
-  *. Ef session er ekki til eða útrunnið á notandi að færast á login síðu.
+  * Búið til logout takka sem eyðir session sbr. PHP Solution 9-5
+  * Session á að eyðast eftir ákveðin tíma (óvirkur) sbr. PHP Solution 9-9
+  * Ef session er ekki til eða útrunnið á notandi að færast á login síðu.
 6. Mitt Svæði, (síðan eftir login) sýnir profile notanda úr gagnagrunni. Á vefsvæðinu á að vera hægt að sjár myndir og myndaflokka raðað á ákveðinn máta t.d. eftir dagsetningum (nýjasta myndin) og nýlega skoðað. Það þarf ekki á þessum tíma að huga að framsetningu mynda eða myndvinnslu. Ekki er gert ráð fyrir neinum upload fídusum. (5%)
 Námsmat:
 Gefið er fullt fyrir fullnægjandi lausn, hálft fyrir lausn sem er ábótavant en virkar.
