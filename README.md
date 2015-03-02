@@ -23,13 +23,15 @@ Login og logout (3%)
   * Session á að eyðast eftir ákveðin tíma (óvirkur) sbr. PHP Solution 9-9
   * Ef session er ekki til eða útrunnið á notandi að færast á login síðu.
 6. Mitt Svæði, (síðan eftir login) sýnir profile notanda úr gagnagrunni. Á vefsvæðinu á að vera hægt að sjár myndir og myndaflokka raðað á ákveðinn máta t.d. eftir dagsetningum (nýjasta myndin) og nýlega skoðað. Það þarf ekki á þessum tíma að huga að framsetningu mynda eða myndvinnslu. Ekki er gert ráð fyrir neinum upload fídusum. (5%)
-Námsmat:
+
+###Námsmat:
 Gefið er fullt fyrir fullnægjandi lausn, hálft fyrir lausn sem er ábótavant en virkar.
-Lesefni:
-• Kafli 5 Forms
-• Kafli 9 Using Sessions to Restrict Access
-• PHP.NET Manual http://www.php.net/manual/en/book.session.php
-• Sjá kafla 18, bls. 366 Session Handling í PHP and MySQL from Novice to Professional
+
+###Lesefni:
+* Kafli 5 Forms
+* Kafli 9 Using Sessions to Restrict Access
+* PHP.NET Manual http://www.php.net/manual/en/book.session.php
+* Sjá kafla 18, bls. 366 Session Handling í PHP and MySQL from Novice to Professional
 
 ## Verkefni 2 - Kafli 4 (20%)
 
