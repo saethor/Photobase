@@ -1,6 +1,9 @@
 <?php
 
 include_once "class.datamanager.php";
+include_once "Classes/User.php";
+include_once "Classes/Redirect.php";
+
 $db_man = new DatabaseManager('tsuts.tskoli.is','0505943279_picturebase','0505943279','saethor94');
 
 $path = "/Photobase/";
