@@ -33,12 +33,10 @@ require_once '../includes/session_timeout.php';
             <?php foreach ($db_man->imageList() as $key => $value): ?>
                 <div class="col-xs-6 col-sm-4 col-md-3 item">
                     <a href="<?php echo $path; ?>assets/images/<?php echo $db_man->getImageInfo($value[0])[2]; ?>">
-                        <img src="<?php echo $path; ?>assets/images/<?php echo $db_man->getImageInfo($value[0])[2]; ?>" alt="">
+                        <img src="<?php echo $path; ?>assets/images/thumbnails/<?php echo $db_man->getImageInfo($value[0])[2]; ?>" alt="">
                     </a>
                 </div>
             <?php endforeach; ?>
-
-            
 
         </div>
 
