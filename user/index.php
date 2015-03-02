@@ -24,78 +24,21 @@ require_once '../includes/session_timeout.php';
 <body>
 
     <?php require '../includes/nav.inc.php'; ?>
-    
-    <section class="section-album" id="section-album">
-
-        <div class="row">
-
-            <h2 class="section-title">Albúmin þín</h2>
-
-            <div class="col-lg-4">
-                <img class="img-circle" src="<?php echo $path; ?>assets/images/london.jpg" alt="London 2014 Album" width="140" height="140">
-                <h2>London 2014</h2>
-                <p>Skelltum okkur til London um páskana 2014 þar sem orlofið var nýtt vel í misgáfaða hluti</p>
-                <p><a class="btn btn-default" href="<?php echo $path; ?>albums/london_2014/" role="button">Skoða albúm &raquo;</a>
-                </p>
-            </div>
-
-            <div class="col-lg-4">
-                <img class="img-circle" src="<?php echo $path; ?>assets/images/krit.jpg" alt="Krít 2013 Album" width="140" height="140">
-                <h2>Krít 2013</h2>
-                <p>Notuðum tækifærið að slappa aðeins af á grískueyjunni Krít áður en alvaran í Reykjavík verð að veruleika og langt og strangt frystihúsasumar var á enda.</p>
-                <p><a class="btn btn-default" href="<?php echo $path; ?>albums/krit_2013/" role="button">Skoða albúm &raquo;</a>
-                </p>
-            </div>
-
-            <div class="col-lg-4">
-                <img class="img-circle" src="<?php echo $path; ?>assets/images/bustadur.jpg" alt="Bústaðarferð 2013 Album" width="140" height="140">
-                <h2>Bústaður 2013</h2>
-                <p>Bústaðarferð rétt fyrir utan laugarvatn með Ragnheiði og Braga í febrúar 2013.</p>
-                <p><a class="btn btn-default" href="<?php echo $path; ?>albums/bustadur_2013/" role="button">Skoða albúm &raquo;</a>
-                </p>
-            </div>
-
-        </div>
-        <!-- /.row -->
-
-    </section>
 
     <section class="section-photos" id="section-photos">
 
         <div class="row">
             <h2 class="section-title">Nýjustu myndirnar þínar</h2>
 
-            <div class="col-xs-6 col-sm-4 col-md-3 item">
-                <img src="<?php echo $path; ?>assets/images/thumbnails/SAM_0229_thumbnail.jpg" alt="">
-            </div>
+            <?php foreach ($db_man->imageList() as $key => $value): ?>
+                <div class="col-xs-6 col-sm-4 col-md-3 item">
+                    <a href="<?php echo $path; ?>assets/images/<?php echo $db_man->getImageInfo($value[0])[2]; ?>">
+                        <img src="<?php echo $path; ?>assets/images/<?php echo $db_man->getImageInfo($value[0])[2]; ?>" alt="">
+                    </a>
+                </div>
+            <?php endforeach; ?>
 
-            <div class="col-xs-6 col-sm-4 col-md-3 item">
-                <img src="<?php echo $path; ?>assets/images/thumbnails/SAM_0286_thumbnail.jpg" alt="">
-            </div>
-
-            <div class="col-xs-6 col-sm-4 col-md-3 item">
-                <img src="<?php echo $path; ?>assets/images/thumbnails/SAM_0295_thumbnail.jpg" alt="">
-            </div>
-
-            <div class="col-xs-6 col-sm-4 col-md-3 item">
-                <img src="<?php echo $path; ?>assets/images/thumbnails/SAM_0258_thumbnail.jpg" alt="">
-            </div>
-
-            <div class="col-xs-6 col-sm-4 col-md-3 item">
-                <img src="<?php echo $path; ?>assets/images/thumbnails/SAM_0303_thumbnail.jpg" alt="">
-            </div>
-
-            <div class="col-xs-6 col-sm-4 col-md-3 item">
-                <img src="<?php echo $path; ?>assets/images/thumbnails/SAM_0319_thumbnail.jpg" alt="">
-            </div>
-
-            <div class="col-xs-6 col-sm-4 col-md-3 item">
-                <img src="<?php echo $path; ?>assets/images/thumbnails/SAM_0330_thumbnail.jpg" alt="">
-            </div>
-
-            <div class="col-xs-6 col-sm-4 col-md-3 item">
-                <img src="<?php echo $path; ?>assets/images/thumbnails/SAM_0455_thumbnail.jpg" alt="">
-            </div>
+            
 
         </div>
 
