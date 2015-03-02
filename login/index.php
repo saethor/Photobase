@@ -7,6 +7,8 @@ use Photobase\Authenticate\CheckPassword;
 
 require_once '../app/init.php';
 
+$user = new User();
+
 // Checks if user is already loged in and redirects to right page
 if (isset($_SESSION['authenticated'])) 
 {
@@ -46,7 +48,8 @@ if (isset($_POST['login']))
     // location to redirect on success
     $redirect = 'http://localhost/photobase/user/';
 
-    require_once '../includes/authenticate.php';
+    // require_once '../includes/authenticate.php';
+    $user->login($userlist, $username, $password, $redirect);
 }
 
 $heroTitle = $title;
