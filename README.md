@@ -9,7 +9,7 @@
 checker osfrv.
 
 Eftir að notandi hefur skráð sig inn á hann að fá sitt eigið vefsvæði þar sem hann á að geta séð allar sínar myndir(filterað á mismunandi hátt) t.d. nýjustu myndirnar, myndaflokkar, nýlega skoðað, osfrv.
-Bættu við myndum og upplýsingum handvirkt í gagnagrunninn til að vinna með(tökum fyrir upload í næsta verkefni). Ekki er gert ríð fyrir email útfærslu sbr. í kafla 5
+Bættu við myndum og upplýsingum handvirkt í gagnagrunninn til að vinna með(tökum fyrir upload í næsta verkefni). Ekki er gert ráð fyrir email útfærslu sbr. í kafla 5
 
 ###Formin þurfa að hafa eftirfarandi:
 
