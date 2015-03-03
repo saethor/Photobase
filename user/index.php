@@ -2,7 +2,21 @@
 require_once '../app/init.php';
 require_once '../includes/session_timeout.php';
 
+// Loops through images in database in filters out used catagories
+$tabs = [];
+foreach ($db_man->imageList() as $key => $value) {
+    if (in_array($value[2], $tabs))
+    {
+        continue;
+    }
+    else 
+    {
+        array_push($tabs, $value[2]);
+    }
+}
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,53 +40,40 @@ require_once '../includes/session_timeout.php';
     <?php require '../includes/nav.inc.php'; ?>
 
     <section class="section-photos" id="section-photos">
-
         <div class="row" role="tabpanel">
             <h2 class="section-title">Nýjustu myndirnar þínar</h2>
             
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="active">
-                    <a href="#People" aria-controls="People" role="tab" data-toggle="tab">People</a>
-                </li>
-                <li role="presentation">
-                    <a href="#Landscapes" aria-controls="Landscapes" role="tab" data-toggle="tab">Landscapes</a>
-                </li>
+                <!-- Counter checks if it is the first element, if so it adds the class active -->
+                <?php $counter = 0;
+                foreach ($tabs as $key): ?>
+                    <li role="presentation"  class="<?php echo ($counter++ == 0) ? 'active' : ''; ?>">
+                        <a href="#<?php echo $key ?>" aria-controls="<?php echo $key ?>" role="tab" data-toggle="tab"><?php echo ucfirst($key) ?></a>
+                    </li>
+                <?php endforeach ?>
             </ul>
 
             <!-- Tab panes -->
             <div class="tab-content">
-
-                <!-- Tab for all the images in the people catagory -->
-                <div role="tabpanel" class="tab-pane active" id="People">
-                    <?php foreach ($db_man->imageList() as $key => $value): 
-                        if ($value[2] == "People"): ?>
-
+                
+                <!-- Counter checks if it is the first element, if so it adds the class active -->
+                <?php $counter = 0; 
+                foreach ($tabs as $key): ?>
+                    <div role="tabpanel" class="tab-pane <?php echo ($counter++ == 0) ? 'active' : ''; ?>" id="<?php echo $key ?>">          
+                    <?php foreach ($db_man->imageList() as $key2 => $value): 
+                        if ($value[2] == $key): ?>                 
                         <div class="col-xs-6 col-sm-4 col-md-3 item">
                             <a href="<?php echo $path; ?>assets/images/<?php echo $db_man->getImageInfo($value[0])[2]; ?>">
                                 <img src="<?php echo $path; ?>assets/images/<?php echo $db_man->getImageInfo($value[0])[2]; ?>" alt="">
                             </a>
                         </div> 
-
-                    <?php endif; endforeach; ?>
-                </div>
-                
-                <!-- Tab for all the images in the landscape catagory -->
-                <div role="tabpanel" class="tab-pane" id="Landscapes">
-                <?php foreach ($db_man->imageList() as $key => $value): 
-                    if ($value[2] == "Landscapes"): ?>
-
-                    <div class="col-xs-6 col-sm-4 col-md-3 item">
-                        <a href="<?php echo $path; ?>assets/images/<?php echo $db_man->getImageInfo($value[0])[2]; ?>">
-                            <img src="<?php echo $path; ?>assets/images/<?php echo $db_man->getImageInfo($value[0])[2]; ?>" alt="">
-                        </a>
-                    </div> 
-
-                <?php endif; endforeach;?>
-                </div>
+                    <?php endif; endforeach; ?>    
+                    </div>
+                <?php endforeach ?>
+            
             </div>
         </div>
-
     </section>
 
     <?php include '../includes/footer.inc.php';?>
