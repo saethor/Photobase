@@ -41,6 +41,10 @@ foreach ($db_man->imageList() as $key => $value) {
 
     <section class="section-photos" id="section-photos">
         <div class="row" role="tabpanel">
+
+        <?php if (empty($tabs)): ?>
+            <h2 class="section-title">Engar myndir til að birta</h2>
+        <?php else: ?>
             <h2 class="section-title">Nýjustu myndirnar þínar</h2>
             
             <!-- Nav tabs -->
@@ -65,7 +69,7 @@ foreach ($db_man->imageList() as $key => $value) {
                         if ($value[2] == $key): ?>                 
                         <div class="col-xs-6 col-sm-4 col-md-3 item">
                             <a href="<?php echo $path; ?>assets/images/<?php echo $db_man->getImageInfo($value[0])[2]; ?>">
-                                <img src="<?php echo $path; ?>assets/images/<?php echo $db_man->getImageInfo($value[0])[2]; ?>" alt="">
+                                <img src="<?php echo $path; ?>assets/images/<?php echo $db_man->getImageInfo($value[0])[2]; ?>" alt="<?php echo $db_man->getImageInfo($value[0])[3]; ?>">
                             </a>
                         </div> 
                     <?php endif; endforeach; ?>    
@@ -73,6 +77,7 @@ foreach ($db_man->imageList() as $key => $value) {
                 <?php endforeach ?>
             
             </div>
+        <?php endif ?>
         </div>
     </section>
 
