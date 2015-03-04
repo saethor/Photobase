@@ -3,195 +3,194 @@
 
         <?php if ($dirname == 'login'): ?>
             <!-- LOGIN SECTION -->
-            <section class="section-contact" id="section-contact">
+            <div class="row">
+                <section class="section-contact col-md-6" id="section-contact">
 
-                <div class="row">                        
+                    <div class="row">
+                        
+                        <h2 class="section-title">Login</h2>     
 
-                    <h2 class="section-title">Login</h2>     
+
+                        <?php if ($error): ?>
+                        <div class="alert alert-danger" role="alert">
+                            <p><?php echo $error ?></p>
+                        </div>
+                        <?php elseif (isset($_GET['expired'])): ?>
+                        <div class="alert alert-warning" role="alert">
+                            <p>Your session has expired. Please log in again</p>                        
+                        </div>
+                        <?php endif ?>
                     
-                    <?php if ($error): ?>
-                    <div class="alert alert-danger" role="alert">
-                        <p><?php echo $error ?></p>
-                    </div>
-                    <?php elseif (isset($_GET['expired'])): ?>
-                    <div class="alert alert-warning" role="alert">
-                        <p>Your session has expired. Please log in again</p>                        
-                    </div>
-                    <?php endif ?>
+                    
 
-                    <form class="contact" method="post" action="">
-                        
-                        <div class="col-md-6 form-group">
-                            <input type="text" name="username" id="username" class="form-control">
-                            <label for="username">Your Username</label>
-                        </div>
-                        
-                        <div class="col-md-6 form-group">
-                            <input type="password" name="pwd" id="pwd" class="form-control">
-                            <label for="pwd">Your Password</label>
-                        </div>
-                       
-                        <div class="col-md-12 form-group">
-                            <input type="submit" name="login" class="form-control">
-                        </div>
-                    </form>
-                </div>
-            </section>
+                        <form class="contact" method="post" action="">
+                            
+                            <div class="col-md-6 form-group">
+                                <input type="text" name="username" id="username" class="form-control">
+                                <label for="username">Your Username</label>
+                            </div>
+                            
+                            <div class="col-md-6 form-group">
+                                <input type="password" name="pwd" id="pwd" class="form-control">
+                                <label for="pwd">Your Password</label>
+                            </div>
+                           
+                            <div class="col-md-12 form-group">
+                                <input type="submit" name="login" class="form-control">
+                            </div>
+                        </form>
+                    </div>
+                </section>
             
-            <!-- REGISTER SECTION -->
-            <section class="section-contact" id="section-contact">
+                <!-- REGISTER SECTION -->
+                <section class="section-contact col-md-6" id="section-contact">
 
-                <div class="row">
-   
-                    <?php //if ($missing || $validationErrors): // Alerts the user if missing field or error with a red banner ?>
-                  <!--   <div class="alert alert-danger" role="alert">
-                        <p class="warning">Plese fix the item(s) indicated.</p>
-                    </div> -->
+                    <div class="row">
 
-                    <?php //endif; ?>
-
-                    <h2 class="section-title">Register</h2>
-                    <?php
-                    if (isset($result) || isset($errors))
-                    {
-                        echo '<ul class="alert alert-danger" role="alert">';
-
-                        if (!empty($errors))
+                        <h2 class="section-title">Register</h2>
+                    
+                        <?php
+                        if (isset($result) || isset($errors))
                         {
-                            foreach ($errors as $item) 
+                            echo '<ul class="alert alert-danger" role="alert">';
+
+                            if (!empty($errors))
                             {
-                                echo "<li>{$item}</li>";
+                                foreach ($errors as $item) 
+                                {
+                                    echo "<li>{$item}</li>";
+                                }
                             }
+                            else 
+                            {
+                                if (!empty($result))
+                                echo "<li>{$result}</li>";
+                            }
+                            echo '</ul>';
                         }
-                        else 
-                        {
-                            if (!empty($result))
-                            echo "<li>{$result}</li>";
-                        }
-                        echo '</ul>';
-                    }
-                    ?>
-                    <form class="contact" action="" method="post">
+                        ?>
+                    
+                        <form class="contact" action="" method="post">
 
-                        <div class="col-md-6 form-group">
-                            <input type="text" id="firstname" name="firstname" class="form-control" 
-                            <?php if ($missing || $validationErrors) echo 'value="' . htmlentities($firstname) . '"'; ?>
-                            >
-                            <label for="firstname">
-                                <?php if ($missing && in_array('firstname', $missing)): ?>
-                                    <span class="warning">Please enter your firstname</span>
-                                <?php else: ?>
-                                    Firstname
-                                <?php endif; ?>
-                            </label>
-                        </div>
+                            <div class="col-md-6 form-group">
+                                <input type="text" id="firstname" name="firstname" class="form-control" 
+                                <?php if ($missing || $validationErrors) echo 'value="' . htmlentities($firstname) . '"'; ?>
+                                >
+                                <label for="firstname">
+                                    <?php if ($missing && in_array('firstname', $missing)): ?>
+                                        <span class="warning">Please enter your firstname</span>
+                                    <?php else: ?>
+                                        Firstname
+                                    <?php endif; ?>
+                                </label>
+                            </div>
 
-                        <div class="col-md-6 form-group">
-                            <input type="text" id="lastname" name="lastname" class="form-control"
-                            <?php if ($missing || $validationErrors) echo 'value="' . htmlentities($lastname) . '"'; ?>
-                            >
-                            <label for="lastname">
-                                <?php if ($missing && in_array('lastname', $missing)): ?>
-                                    <span class="warning">Please enter your lastname</span>
+                            <div class="col-md-6 form-group">
+                                <input type="text" id="lastname" name="lastname" class="form-control"
+                                <?php if ($missing || $validationErrors) echo 'value="' . htmlentities($lastname) . '"'; ?>
+                                >
+                                <label for="lastname">
+                                    <?php if ($missing && in_array('lastname', $missing)): ?>
+                                        <span class="warning">Please enter your lastname</span>
+                                    <?php else: ?>
+                                        Lastname
+                                    <?php endif ?>
+                                </label>
+                            </div>
+
+                            <div class="col-md-6 form-group">
+                                <input type="text" id="username" name="username" class="form-control"
+                                <?php if ($missing || $validationErrors) echo 'value="' . htmlentities($username) . '"'; ?>
+                                >
+                                <label for="username">
+                                    <?php if ($missing && in_array('username', $missing)): ?>
+                                        <span class="warning">Please choose your username</span>
+                                    <?php else: ?>
+                                        Username
+                                    <?php endif ?>
+                                </label>
+                            </div>
+
+                            <div class="col-md-6 form-group">
+                                <input type="email" id="email" name="email" class="form-control"
+                                <?php if ($missing || $validationErrors) echo 'value="' . htmlentities($email) . '"'; ?>
+                                >
+                                <label for="email">
+                                    <?php if ($missing && in_array('email', $missing)): ?>
+                                        <span class="warning">Please enter your email address</span>
+                                    <?php else: ?>
+                                        Email
+                                    <?php endif ?>
+                                </label>
+                            </div>
+
+                            <div class="col-md-6 form-group">
+                                <input type="password" id="pwd" name="pwd" class="form-control">
+                                <label for="pwd">
+                                    <?php if ($missing && in_array('pwd', $missing)): ?>
+                                        <span class="warning">Please enter your password of choose</span>
+                                    <?php else: ?>
+                                        Your Password
+                                    <?php endif ?>
+                                </label>
+                            </div>
+
+                            <div class="col-md-6 form-group">
+                                <input type="password" id="conf_pwd" name="conf_pwd" class="form-control">
+                                <label for="conf_pwd">
+                                    <?php if ($missing && in_array('conf_pwd', $missing)): ?>
+                                        <span class="warning">Please enter your password again</span>
+                                    <?php else: ?>
+                                        Your Password Again
+                                    <?php endif ?>
+                                </label>
+                            </div>
+
+                            <div class="col-md-12 form-group">
+                                <?php if ($missing && in_array('howHear', $missing)): ?>
+                                    <div class="alert alert-danger" role="alert">
+                                    <span class="warning">Please make a selection</span>
+                                        
+                                    </div> 
                                 <?php else: ?>
-                                    Lastname
+                                    <p>How did your hear about us?</p>
                                 <?php endif ?>
-                            </label>
-                        </div>
+                                <select name="howHear" id="howHear" class="form-control">
+                                    <option value=""
+                                        <?php 
+                                        if (!$_POST || (isset($_POST['howHear']) && $_POST['howHear'] == '')) echo 'selected';
+                                        ?>>
+                                        Select one
+                                    </option>
+                                    <option value="Google"
+                                        <?php 
+                                        if (isset($_POST['howHear']) && $_POST['howHear'] == 'Google') echo 'selected';
+                                        ?>>
+                                        Google
+                                    </option>
+                                    <option value="Facebook"
+                                        <?php 
+                                        if (isset($_POST['howHear']) && $_POST['howHear'] == 'Facebook') echo 'selected';
+                                        ?>>
+                                        Facebook
+                                    </option>
+                                    <option value="Twitter"
+                                        <?php 
+                                        if (isset($_POST['howHear']) && $_POST['howHear'] == 'Twitter') echo 'selected';
+                                        ?>>
+                                        Twitter
+                                    </option>
+                                </select>
 
-                        <div class="col-md-6 form-group">
-                            <input type="text" id="username" name="username" class="form-control"
-                            <?php if ($missing || $validationErrors) echo 'value="' . htmlentities($username) . '"'; ?>
-                            >
-                            <label for="username">
-                                <?php if ($missing && in_array('username', $missing)): ?>
-                                    <span class="warning">Please choose your username</span>
-                                <?php else: ?>
-                                    Username
-                                <?php endif ?>
-                            </label>
-                        </div>
+                            </div>
 
-                        <div class="col-md-6 form-group">
-                            <input type="email" id="email" name="email" class="form-control"
-                            <?php if ($missing || $validationErrors) echo 'value="' . htmlentities($email) . '"'; ?>
-                            >
-                            <label for="email">
-                                <?php if ($missing && in_array('email', $missing)): ?>
-                                    <span class="warning">Please enter your email address</span>
-                                <?php else: ?>
-                                    Email
-                                <?php endif ?>
-                            </label>
-                        </div>
-
-                        <div class="col-md-6 form-group">
-                            <input type="password" id="pwd" name="pwd" class="form-control">
-                            <label for="pwd">
-                                <?php if ($missing && in_array('pwd', $missing)): ?>
-                                    <span class="warning">Please enter your password of choose</span>
-                                <?php else: ?>
-                                    Your Password
-                                <?php endif ?>
-                            </label>
-                        </div>
-
-                        <div class="col-md-6 form-group">
-                            <input type="password" id="conf_pwd" name="conf_pwd" class="form-control">
-                            <label for="conf_pwd">
-                                <?php if ($missing && in_array('conf_pwd', $missing)): ?>
-                                    <span class="warning">Please enter your password again</span>
-                                <?php else: ?>
-                                    Your Password Again
-                                <?php endif ?>
-                            </label>
-                        </div>
-
-                        <div class="col-md-12 form-group">
-                            <?php if ($missing && in_array('howHear', $missing)): ?>
-                                <div class="alert alert-danger" role="alert">
-                                <span class="warning">Please make a selection</span>
-                                    
-                                </div> 
-                            <?php else: ?>
-                                <p>How did your hear about us?</p>
-                            <?php endif ?>
-                            <select name="howHear" id="howHear" class="form-control">
-                                <option value=""
-                                    <?php 
-                                    if (!$_POST || (isset($_POST['howHear']) && $_POST['howHear'] == '')) echo 'selected';
-                                    ?>>
-                                    Select one
-                                </option>
-                                <option value="Google"
-                                    <?php 
-                                    if (isset($_POST['howHear']) && $_POST['howHear'] == 'Google') echo 'selected';
-                                    ?>>
-                                    Google
-                                </option>
-                                <option value="Facebook"
-                                    <?php 
-                                    if (isset($_POST['howHear']) && $_POST['howHear'] == 'Facebook') echo 'selected';
-                                    ?>>
-                                    Facebook
-                                </option>
-                                <option value="Twitter"
-                                    <?php 
-                                    if (isset($_POST['howHear']) && $_POST['howHear'] == 'Twitter') echo 'selected';
-                                    ?>>
-                                    Twitter
-                                </option>
-                            </select>
-
-                        </div>
-
-                        <div class="col-md-12 form-group">
-                            <input type="submit" name="register" class="form-control">
-                        </div>
-                    </form>
-
-                </div>
-            </section>
+                            <div class="col-md-12 form-group">
+                                <input type="submit" name="register" class="form-control">
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
             
         <?php else: ?>
         <div class="hero-title">
