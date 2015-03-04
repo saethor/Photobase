@@ -8,7 +8,7 @@ $timelimit = 15 * 60; // set the timeout to 15 minutes
 $now = time();
 
 // Where to redirect if rejected
-$redirect = 'http://localhost/Photobase/login/';
+$redirect = $path . 'login/';
 
 // If session variable not set, redirect to login page
 if (!isset($_SESSION['authenticated'])) 

@@ -44,7 +44,7 @@ if (isset($_POST['login']))
     $userlist = '../sessions/encrypted.csv';
 
     // location to redirect on success
-    $redirect = 'http://localhost/photobase/user/';
+    $redirect = $path . 'user/';
 
     require_once '../includes/authenticate.php';
 }

@@ -1,6 +1,5 @@
 <?php
-// Run this script only if the logout button is clicked
-session_start();
+require_once '../app/init.php';
 
 $_SESSION = [];
 
@@ -11,7 +10,8 @@ if (isset($_COOKIE[session_name()])) {
 
 // end session and redirect
 session_destroy();
-header('Location: http://localhost/Photobase/login/');
+$redirect = $path . 'login/';
+header("Location: {$redirect}");
 exit;
 
 ?>

@@ -1,6 +1,6 @@
 <?php 
 require_once '../app/init.php';
-require_once '../includes/session_timeout.php';
+/*require_once '../includes/session_timeout.php';*/
 
 // Loops through images in database in filters out used catagories
 $tabs = [];
