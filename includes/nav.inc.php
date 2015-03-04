@@ -32,7 +32,15 @@ $dirname = basename(dirname($_SERVER['PHP_SELF']));
                         </li>
                         <?php if (isset($_SESSION['authenticated'])): ?>
                             <li>
-                                <a href="<?php echo $path . 'includes/logout.php'; ?>">Logout</a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Username <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li>
+                                        <a href="<?php echo $path . 'user/' ?>">User</a>
+                                    </li>
+                                    <li>
+                                        <a href="<?php echo $path . 'includes/logout.php'; ?>">Logout</a> 
+                                    </li>
+                                </ul>
                             </li>
                         <?php else: ?>
                             <li <?php echo ($dirname == 'login') ? 'class="active"' : ''; ?>>
