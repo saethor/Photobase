@@ -5634,7 +5634,7 @@ body {
 /* Flip around the padding for proper display in narrow viewports */
 .navbar-wrapper .container {
   padding-right: 0;
-  padding-left: 15px; }
+  padding-left: 0; }
 
 .navbar-wrapper .navbar {
   padding-right: 15px;
@@ -5719,7 +5719,7 @@ body {
 
   .navbar-wrapper .navbar {
     padding-right: 0;
-    padding-left: 15px; }
+    padding-left: 0; }
 
   /* The navbar becomes detached from the top, so we round the corners */
   .navbar-wrapper .navbar {
@@ -5730,6 +5730,7 @@ body {
     background-color: #32425a; }
 
   .navbar-wrapper .navbar-nav {
+    padding-left: 10px;
     background-color: #32425a; }
 
   .navbar-default .navbar-collapse, .navbar-default .navbar-form {
