@@ -10,18 +10,25 @@
 /* Flip around the padding for proper display in narrow viewports */
 .navbar-wrapper .container {
   padding-right: 0;
-  padding-left: 0;
+  padding-left: 15px;
 }
+
 .navbar-wrapper .navbar {
   padding-right: 15px;
   padding-left: 15px;
   background: none;
-  border:none;
+  border: 0px solid #32425a ;
   border-radius: none;
 }
 
 .navbar-wrapper .navbar.user {
   background: #32425a;
+  li {
+    a {
+     border: 2px solid #32425a;
+    }
+  }
+  
 }
 
 .navbar-default .navbar-nav > .active > a,
@@ -29,6 +36,10 @@
 .navbar-default .navbar-nav > .active > a:focus {
     color: #fff;
     background-color: transparent;
+}
+
+.navbar-header {
+  padding-left: 10px;
 }
 
 .navbar-default .navbar-nav{
@@ -59,8 +70,6 @@
         }
     }
 }
-
-
 
 .navbar > .container .navbar-brand {
   font-size: 24px;
@@ -121,12 +130,12 @@
   }
   .navbar-wrapper .navbar {
     padding-right: 0;
-    padding-left: 0;
+    padding-left: 15px;
   }
 
   /* The navbar becomes detached from the top, so we round the corners */
   .navbar-wrapper .navbar {
-    border-radius: 4px;
+    border-radius: 0;
   }
 }
 
