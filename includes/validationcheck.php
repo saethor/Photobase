@@ -34,24 +34,21 @@ isSuspect($_POST, $pattern, $suspect);
 
 */
 
-if (!$suspect) {
+foreach($_POST as $key => $value) {
 
-    foreach($_POST as $key => $value) {
+    // Assign temporary variable and strip whitespace if not an array
+    $temp = is_array($value) ? $value : trim($value);
 
-        // Assign temporary variable and strip whitespace if not an array
-        $temp = is_array($value) ? $value : trim($value);
+    // if empty and required, add $missing array
+    if (empty($temp) && in_array($key, $required)) {
 
-        // if empty and required, add $missing array
-        if (empty($temp) && in_array($key, $required)) {
+        $missing[] = $key;
+        ${$key} = '';
 
-            $missing[] = $key;
-            ${$key} = '';
+    } elseif (in_array($key, $expected)) {
 
-        } elseif (in_array($key, $expected)) {
+        // otherwise, assign to a variable of the sama name as $key
+        ${$key} = $temp;
 
-            // otherwise, assign to a variable of the sama name as $key
-            ${$key} = $temp;
-
-        }
     }
 }

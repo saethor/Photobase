@@ -27,7 +27,6 @@ if (isset($_POST['register']))
     $username   = trim($_POST['username']);
     $password   = trim($_POST['pwd']);
     $retyped    = trim($_POST['conf_pwd']);
-    require_once '../includes/register_user.php';
 
     // Expected fields, processing only expected variables so attacker can't inject other variables into the $_POST array.
     $expected = ['firstname', 'lastname', 'username', 'email', 'pwd', 'conf_pwd', 'howHear'];
@@ -35,6 +34,13 @@ if (isset($_POST['register']))
     // Required fields
     $required = ['firstname', 'username', 'email', 'pwd', 'conf_pwd', 'howHear'];
     require '../includes/validationcheck.php';
+
+    if (empty($missing))
+    {
+        require_once '../includes/register_user.php';
+    }
+
+    
 
 }
 if (isset($_POST['login']))
