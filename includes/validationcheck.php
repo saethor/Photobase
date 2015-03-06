@@ -1,28 +1,28 @@
 <?php
-// assume nothing is suspected
-$suspect = false;
+// // assume nothing is suspected
+// $suspect = false;
 
-// Create a pattern to locate suspect phrases
-$pattern = '/Content-Type:|Bcc:Cc:/i';
+// // Create a pattern to locate suspect phrases
+// $pattern = '/Content-Type:|Bcc:Cc:/i';
 
-// Function to check for suspect phrases
-function isSuspect($val, $pattern, &$suspect) {
-    // if the variable is an array, loop through each element
-    // and pass it recursively back to the same function 
-    if (is_array($val)) {
-        foreach ($val as $item) {
-            isSuspect($item, $pattern, $suspect);
-        }
-    } else {
-        // if one of the suspect is found, set Boolean to true
-        if(preg_match($pattern, $val)) {
-            $suspect = true;
-        }
-    }
-}
+// // Function to check for suspect phrases
+// function isSuspect($val, $pattern, &$suspect) {
+//     // if the variable is an array, loop through each element
+//     // and pass it recursively back to the same function 
+//     if (is_array($val)) {
+//         foreach ($val as $item) {
+//             isSuspect($item, $pattern, $suspect);
+//         }
+//     } else {
+//         // if one of the suspect is found, set Boolean to true
+//         if(preg_match($pattern, $val)) {
+//             $suspect = true;
+//         }
+//     }
+// }
 
-// Check the $_POST array and any subarrays for suspect content
-isSuspect($_POST, $pattern, $suspect);
+// // Check the $_POST array and any subarrays for suspect content
+// isSuspect($_POST, $pattern, $suspect);
 
 /* 
     Foreach loop goes through $_POST array, strips out any whitespace from text fields, 

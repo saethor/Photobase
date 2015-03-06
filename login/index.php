@@ -14,7 +14,6 @@ if (isset($_SESSION['authenticated']))
     exit;
 }
 
-$validationErrors = [];
 $missing = [];
 $error = '';
 

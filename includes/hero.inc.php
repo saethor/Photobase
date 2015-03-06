@@ -74,7 +74,7 @@
 
                             <div class="col-md-6 form-group">
                                 <input type="text" id="firstname" name="firstname" class="form-control" 
-                                <?php if ($missing || $validationErrors) echo 'value="' . htmlentities($firstname) . '"'; ?>
+                                <?php if ($missing || $errors) echo 'value="' . htmlentities($firstname) . '"'; ?>
                                 >
                                 <label for="firstname">
                                     <?php if ($missing && in_array('firstname', $missing)): ?>
@@ -87,7 +87,7 @@
 
                             <div class="col-md-6 form-group">
                                 <input type="text" id="lastname" name="lastname" class="form-control"
-                                <?php if ($missing || $validationErrors) echo 'value="' . htmlentities($lastname) . '"'; ?>
+                                <?php if ($missing || $errors) echo 'value="' . htmlentities($lastname) . '"'; ?>
                                 >
                                 <label for="lastname">
                                     <?php if ($missing && in_array('lastname', $missing)): ?>
@@ -100,7 +100,7 @@
 
                             <div class="col-md-6 form-group">
                                 <input type="text" id="username" name="username" class="form-control"
-                                <?php if ($missing || $validationErrors) echo 'value="' . htmlentities($username) . '"'; ?>
+                                <?php if ($missing || $errors) echo 'value="' . htmlentities($username) . '"'; ?>
                                 >
                                 <label for="username">
                                     <?php if ($missing && in_array('username', $missing)): ?>
@@ -113,7 +113,7 @@
 
                             <div class="col-md-6 form-group">
                                 <input type="email" id="email" name="email" class="form-control"
-                                <?php if ($missing || $validationErrors) echo 'value="' . htmlentities($email) . '"'; ?>
+                                <?php if ($missing || $errors) echo 'value="' . htmlentities($email) . '"'; ?>
                                 >
                                 <label for="email">
                                     <?php if ($missing && in_array('email', $missing)): ?>
