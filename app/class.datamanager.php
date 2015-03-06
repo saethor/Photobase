@@ -310,6 +310,33 @@
 		/*--=================================================--*/
 		// User
 		/*--=================================================--*/
+		/**
+		* This function validates user
+		*
+		* @param string $userName
+		* @param string $userPass
+		*
+		* @return boolean
+		*/
+		public function validateUser($userName, $userPass)
+		{
+			$statement = $this->connection->prepare("select ValidateUser(?,?)");
+			$statement->bindParam(1, $userName);
+			$statement->bindParam(2, $userPass);
+			
+			try 
+			{
+				$statement->execute();
+				
+				$row = $statement->fetch(PDO::FETCH_NUM);
+				
+				return ($row[0] == 1) ? true : false;
+			}
+			catch(PDOException $e)
+			{
+				return false;
+			}
+		}
 
 		/**
 		 * The function creates new user in the database
