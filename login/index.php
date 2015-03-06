@@ -21,11 +21,13 @@ $error = '';
 // Script to register a user
 if (isset($_POST['register'])) 
 {
-    $username = trim($_POST['username']);
-    $password = trim($_POST['pwd']);
-    $retyped = trim($_POST['conf_pwd']);
-    $userfile = '../sessions/encrypted.csv';
-    require_once '../includes/register_user_csv.php';
+    $firstname  = trim($_POST['firstname']);
+    $lastname   = trim($_POST['lastname']);
+    $email      = trim($_POST['email']);
+    $username   = trim($_POST['username']);
+    $password   = trim($_POST['pwd']);
+    $retyped    = trim($_POST['conf_pwd']);
+    require_once '../includes/register_user.php';
 
     // Expected fields, processing only expected variables so attacker can't inject other variables into the $_POST array.
     $expected = ['firstname', 'lastname', 'username', 'email', 'pwd', 'conf_pwd', 'howHear'];
