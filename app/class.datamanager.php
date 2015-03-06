@@ -306,5 +306,148 @@
 				return -1;
 			}
 		}
+
+		/*--=================================================--*/
+		// User
+		/*--=================================================--*/
+
+		/**
+		 * The function creates new user in the database
+		 *
+		 * @param string $firstName
+		 * @param string $lastName
+		 * @param string $userEmail
+		 * @param string $userName
+		 * @param string $userPassword
+		 *
+		 * @return boolean
+		 */
+		public function newUser($firstName, $lastName, $userEmail, $userName, $userPassword)
+		{
+			$statement = $this->connection->prepare('call NewUser(?,?,?,?,?)');
+			$statement->bindParam(1,$firstName);
+			$statement->bindParam(2,$lastName);
+			$statement->bindParam(3,$userEmail);
+			$statement->bindParam(4,$userName);
+			$statement->bindParam(5,$userPassword);
+			
+			try 
+			{
+				$statement->execute();
+				
+				return true;
+			}
+			catch(PDOException $e)
+			{
+				return false;
+			}
+		}
+
+		/**
+		 * The function gets user from database based on id
+		 *
+		 * @param string $userId
+		 * @return one dimensional array
+		 */
+		public function getUser($userId)
+		{
+			$statement = $this->connection->prepare('call GetUser(?)');
+			$statement->bindParam(1,$userId);
+			
+			try 
+			{
+				$statement->execute();
+				
+				$row = $statement->fetch(PDO::FETCH_NUM);
+				return $row;
+			}
+			catch(PDOException $e)
+			{
+				return array();
+			}
+		}
+
+		/**
+		 * The function returns a list of all users
+		 *
+		 * @return two dimensional array
+		 */
+		public function userList()
+		{
+			$statement = $this->connection->prepare('call UserList()');
+			
+			try 
+			{
+				$arr = array();
+				$statement->execute();
+				
+				while ($row = $statement->fetch(PDO::FETCH_NUM)) 
+				{
+					array_push($arr,$row);
+				}
+				return $arr;
+			}
+			catch(PDOException $e)
+			{
+				return array();
+			}
+		}
+
+		/**
+		 * The function updates an user in the database
+		 *
+		 * @param string $id
+		 * @param string $firstName
+		 * @param string $lastName
+		 * @param string $userEmail
+		 * @param string $userName
+		 * @param string $userPassword
+		 *
+		 * @return boolean
+		 */
+		public function updateUser($id,$firstName,$lastName,$userEmail,$userName,$userPassword)
+		{
+			$statement = $this->connection->prepare('call UpdateUser(?,?,?,?,?,?)');
+			$statement->bindParam(1,$id);
+			$statement->bindParam(2,$firstName);
+			$statement->bindParam(3,$lastName);
+			$statement->bindParam(4,$userEmail);
+			$statement->bindParam(5,$userName);
+			$statement->bindParam(6,$userPassword);
+			
+			try 
+			{
+				$statement->execute();
+				
+				return true;
+			}
+			catch(PDOException $e)
+			{
+				return false;
+			}
+		}
+
+		/**
+		 * The function deletes a user from the database
+		 *
+		 * @param string $userId
+		 * @return boolean
+		 */
+		public function deleteUser($userId)
+		{
+			$statement = $this->connection->prepare('call DeleteUser(?)');
+			$statement->bindParam(1,$userId);
+			
+			try 
+			{
+				$statement->execute();
+				
+				return true;
+			}
+			catch(PDOException $e)
+			{
+				return false;
+			}
+		}
 	}
 ?>
