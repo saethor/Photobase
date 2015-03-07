@@ -50,23 +50,29 @@
                         <h2 class="section-title">Register</h2>
                     
                         <?php
-                        if (isset($result) || isset($errors))
+                        if (isset($result) || !empty($errors))
                         {
-                            echo '<ul class="alert alert-danger" role="alert">';
 
                             if (!empty($errors))
                             {
+                            echo '<ul class="alert alert-danger" role="alert">';
+
                                 foreach ($errors as $item) 
                                 {
                                     echo "<li>{$item}</li>";
                                 }
+                            echo '</ul>';
+
                             }
                             else 
                             {
+                            echo '<div class="alert alert-success role="alert">';
+
                                 if (!empty($result))
-                                echo "<li>{$result}</li>";
+                                    echo "<p>{$result}</p>";
+
+                            echo '</div>';
                             }
-                            echo '</ul>';
                         }
                         ?>
                     
@@ -74,7 +80,7 @@
 
                             <div class="col-md-6 form-group">
                                 <input type="text" id="firstname" name="firstname" class="form-control" 
-                                <?php if ($missing || $errors) echo 'value="' . htmlentities($firstname) . '"'; ?>
+                                <?php if ($missing || !empty($errors)) echo 'value="' . htmlentities($firstname) . '"'; ?>
                                 >
                                 <label for="firstname">
                                     <?php if ($missing && in_array('firstname', $missing)): ?>
@@ -87,7 +93,7 @@
 
                             <div class="col-md-6 form-group">
                                 <input type="text" id="lastname" name="lastname" class="form-control"
-                                <?php if ($missing || $errors) echo 'value="' . htmlentities($lastname) . '"'; ?>
+                                <?php if ($missing || !empty($errors)) echo 'value="' . htmlentities($lastname) . '"'; ?>
                                 >
                                 <label for="lastname">
                                     <?php if ($missing && in_array('lastname', $missing)): ?>
@@ -100,7 +106,7 @@
 
                             <div class="col-md-6 form-group">
                                 <input type="text" id="username" name="username" class="form-control"
-                                <?php if ($missing || $errors) echo 'value="' . htmlentities($username) . '"'; ?>
+                                <?php if ($missing || !empty($errors)) echo 'value="' . htmlentities($username) . '"'; ?>
                                 >
                                 <label for="username">
                                     <?php if ($missing && in_array('username', $missing)): ?>
@@ -113,7 +119,7 @@
 
                             <div class="col-md-6 form-group">
                                 <input type="email" id="email" name="email" class="form-control"
-                                <?php if ($missing || $errors) echo 'value="' . htmlentities($email) . '"'; ?>
+                                <?php if ($missing || !empty($errors)) echo 'value="' . htmlentities($email) . '"'; ?>
                                 >
                                 <label for="email">
                                     <?php if ($missing && in_array('email', $missing)): ?>

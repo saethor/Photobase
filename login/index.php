@@ -15,6 +15,7 @@ if (isset($_SESSION['authenticated']))
 }
 
 $missing = [];
+$errors = [];
 $error = '';
 
 // Script to register a user
