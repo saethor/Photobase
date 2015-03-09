@@ -1,7 +1,6 @@
 <?php
 require_once 'app/init.php';
-phpinfo();
-die();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
