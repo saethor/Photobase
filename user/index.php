@@ -81,6 +81,41 @@ foreach ($db_man->imageList() as $key => $value) {
         </div>
     </section>
 
+    <section class="section-album" id="section-album">
+
+        <div class="row">
+
+            <h2 class="section-title">Nýjustu albúmin</h2>
+
+            <div class="col-lg-4">
+                <img class="img-circle" src="<?php echo $path; ?>assets/images/london.jpg" alt="London 2014 Album" width="140" height="140">
+                <h2>London 2014</h2>
+                <p>Skelltum okkur til London um páskana 2014 þar sem orlofið var nýtt vel í misgáfaða hluti</p>
+                <p><a class="btn btn-default" href="<?php echo $path; ?>albums/london_2014/" role="button">Skoða albúm &raquo;</a>
+                </p>
+            </div>
+
+            <div class="col-lg-4">
+                <img class="img-circle" src="<?php echo $path; ?>assets/images/krit.jpg" alt="Krít 2013 Album" width="140" height="140">
+                <h2>Krít 2013</h2>
+                <p>Notuðum tækifærið að slappa aðeins af á grískueyjunni Krít áður en alvaran í Reykjavík verð að veruleika og langt og strangt frystihúsasumar var á enda.</p>
+                <p><a class="btn btn-default" href="<?php echo $path; ?>albums/krit_2013/" role="button">Skoða albúm &raquo;</a>
+                </p>
+            </div>
+
+            <div class="col-lg-4">
+                <img class="img-circle" src="<?php echo $path; ?>assets/images/bustadur.jpg" alt="Bústaðarferð 2013 Album" width="140" height="140">
+                <h2>Bústaður 2013</h2>
+                <p>Bústaðarferð rétt fyrir utan laugarvatn með Ragnheiði og Braga í febrúar 2013.</p>
+                <p><a class="btn btn-default" href="<?php echo $path; ?>albums/bustadur_2013/" role="button">Skoða albúm &raquo;</a>
+                </p>
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+    </section>
+
     <?php include '../includes/footer.inc.php';?>
 
     <!-- Bootstrap core JavaScript
