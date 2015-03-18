@@ -1,6 +1,8 @@
 <?php 
 require_once '../app/init.php';
-/*require_once '../includes/session_timeout.php';*/
+require_once '../includes/session_timeout.php';
+
+use PhpSolutions\File\Upload;
 
 // Loops through images in database in filters out used catagories
 $tabs = [];
@@ -15,6 +17,27 @@ foreach ($db_man->imageList() as $key => $value) {
     }
 }
 
+// Max file size limit 
+$max = 51200;
+if (isset($_POST['upload']))
+{
+    // Define the path to the upload folder
+    $destination = 'N:/xampp/htdocs/Photobase/user/images/';
+
+    require_once '../PhpSolutions/File/Upload.php';
+    
+    try 
+    {
+        $loader = new Upload($destination);
+        $loader->upload();
+        $result = $loader->getMessages();
+    } 
+    catch (Exception $e) 
+    {
+        echo $e->getMessage();
+    }
+
+}
 ?>
 
 <!DOCTYPE html>
@@ -38,6 +61,36 @@ foreach ($db_man->imageList() as $key => $value) {
 <body>
 
     <?php require '../includes/nav.inc.php'; ?>
+
+    <section class="section-contact" id="section-contact">
+
+        <div class="row">
+            <h2 class="section-title">Upload a new image</h2>
+            
+            <?php 
+            if (isset($result)) 
+            {
+                echo '<ul class="alert alert-success" role="alert">';
+                foreach ($result as $message) {
+                    echo "<li>{$message}</li>";
+                }
+                echo '</ul>';
+            } ?>
+            <form method="post" enctype="multipart/form-data" id="uploadImage" class="">
+                <div class="col-md-6 form-group">
+                    <label for="image">Upload image</label>
+                    <input type="hidden" name="MAX_FILE_SIZE" value="<?= $max; ?>">
+                    <input type="file" name="image" id="image" class="form-control">
+                </div>
+                
+                <div class="col-md-12 form-group">
+                    <button type="submit" name="upload" class="btn btn-default">Upload</button>
+                </div>
+
+            </form>
+        </div>
+
+    </section>
 
     <section class="section-photos" id="section-photos">
         <div class="row" role="tabpanel">
