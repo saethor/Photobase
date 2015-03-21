@@ -34,6 +34,11 @@ class Upload
         'image/jpg'
     ];
 
+    /**
+     * Initializes the object of the class
+     * @param string $path path to the destination where the file is being
+     * uploaded
+     */
     public function __construct($path) 
     {
         // Checkes if the path is a directory and the directory has permissions to write
@@ -129,6 +134,10 @@ class Upload
         return $this->messages;
     }
 
+    /**
+     * Addes error messages to the messages array that corresponds each error
+     * @param  array $file file that is being uploaded
+     */
     protected function getErrorMessage($file)
     {
         switch ($file['error']) {
@@ -149,6 +158,12 @@ class Upload
         }
     }
 
+    /**
+     * Checks the size of the file and adds appropriet error message to the
+     * error message array
+     * @param  array $file
+     * @return bool       
+     */
     protected function checkSize($file) 
     {
         if ($file['error'] == 1 || $file['error'] == 2)
@@ -172,6 +187,12 @@ class Upload
         }
     }
 
+    /**
+     * Checks if $file MIME type is in permitted array. if it is it returns
+     * true, else it returns false
+     * @param  array $file
+     * @return bool       
+     */
     protected function checkType($file)
     {
         if (in_array($file['type'], $this->permitted))
@@ -185,6 +206,10 @@ class Upload
         }
     }
 
+    /**
+     * Converts raw number of bytes stored in $max into a friendlier format.
+     * @return string int of KB with a 'KB' added in the end
+     */
     public function getMaxSize()
     {
         return number_format($this->max/1024, 1) . ' KB';
