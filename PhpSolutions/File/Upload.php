@@ -169,6 +169,19 @@ class Upload
     }
 
     /**
+     * Method for changing the maximum permitted size needs to check that the
+     * submitted value is a number and assign it to the $max property.
+     * @param int $num maximum size
+     */
+    public function setMaxSize($num)
+    {
+        if (is_numeric($num) && $num > 0)
+        {
+            $this->max = (int) $num;
+        }
+    }
+
+    /**
      * Checks the size of the file and adds appropriet error message to the
      * error message array
      * @param  array $file
