@@ -18,7 +18,7 @@ foreach ($db_man->imageList() as $key => $value) {
 }
 
 // Max file size limit 
-$max = 5120000;
+$max = 6000 * 1024; // 6000 KB
 if (isset($_POST['upload']))
 {
     // Define the path to the upload folder
@@ -29,6 +29,8 @@ if (isset($_POST['upload']))
     try 
     {
         $loader = new Upload($destination);
+        $loader->setMaxSize($max);
+        $loader->allowAllTypes();
         $loader->upload();
         $result = $loader->getMessages();
     } 
@@ -73,6 +75,7 @@ if (isset($_POST['upload']))
                 echo '<ul class="alert alert-success" role="alert">';
                 foreach ($result as $message) {
                     echo "<li>{$message}</li>";
+                    echo '<pre>', print_r($_FILES), '</pre>';
                 }
                 echo '</ul>';
             } ?>

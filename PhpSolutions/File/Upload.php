@@ -224,15 +224,18 @@ class Upload
         }
         else 
         {
-            $this->messages[] = $file['name'] . ' is not permitted type of file.';
-            return false;
+            if (!empty($file['type'])) 
+            {
+                $this->messages[] = $file['name'] . ' is not permitted type of file.';
+                return false;
+            }
         }
     }
 
     /**
      * Changes typeCheckingOn to flase so all types of files can be uploaded
      */
-    protected function allowAllTypes() 
+    public function allowAllTypes() 
     {
         $this->typeCheckingOn = false;
     }
