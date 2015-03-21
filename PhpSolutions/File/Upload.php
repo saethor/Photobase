@@ -41,6 +41,25 @@ class Upload
     ];
 
     /**
+     * Array of extension that are not trusted
+     * @var array
+     */
+    protected $notTrusted = ['bin', 'cgi', 'exe', 'js', 'pl', 'php', 'py', 'sh'];
+
+    /**
+     * Sets the default suffix that will be appended to the filname of risky
+     * files.
+     * @var string
+     */
+    protected $suffix = '.upload';
+
+    /**
+     * Used to store the fil's new name if it is changed
+     * @var string
+     */
+    protected $newName;
+
+    /**
      * Initializes the object of the class
      * @param string $path path to the destination where the file is being
      * uploaded
@@ -108,6 +127,11 @@ class Upload
             }
         }
 
+        if ($accept)
+        {
+            $this->checkName($file);
+        }
+
         return $accept;
     }
 
@@ -121,12 +145,18 @@ class Upload
      */
     protected function moveFile($file)
     {
+        $filename = isset($this->newName) ? $this->newName : $file['name'];
+
         $success = move_uploaded_file($file['tmp_name'], 
-            $this->destination . $file['name']);
+            $this->destination . $filename);
 
         if ($success)
         {
             $result = $file['name'] . ' was uploaded successfully';
+            if (!is_null($this->newName))
+            {
+                $result .= ', and was renamed ' . $this->newName;
+            }
             $this->messages[] = $result;
         }
         else 
@@ -233,11 +263,44 @@ class Upload
     }
 
     /**
+     * Method that checks the name of the file. It first resets the $newName to
+     * null. Then it strips out all the spaces and replaces them with a
+     * underscore. Then the method checks if $typeCheckingOn is false and suffix
+     * is not empty. if both of that is true then it performs a check to see if
+     * extension is int the untrusted array or if there is no extension. If so
+     * it adds the suffix to the end of the name
+     * @param  array $file 
+     */
+    protected function checkName($file)
+    {
+        $this->newName = null;
+        $nospaces = str_replace(' ', '_', $file['name']);
+        if ($nospaces != $file['name'])
+        {
+            $this->newName = $nospaces;
+        }
+
+        $extension = pathinfo($nospaces, PATHINFO_EXTENSION);
+
+        if (!$this->typeCheckingOn && !empty($this->suffix)) 
+        {
+            if (in_array($extension, $this->notTrusted) || empty($extension))
+            {
+                $this->newName = $nospaces . $this->suffix;
+            }
+        }
+    }
+
+    /**
      * Changes typeCheckingOn to flase so all types of files can be uploaded
      */
-    public function allowAllTypes() 
+    public function allowAllTypes($suffix = true) 
     {
         $this->typeCheckingOn = false;
+        if (!$suffix)
+        {
+            $this->suffix = ''; // empty string
+        }
     }
 
     /**

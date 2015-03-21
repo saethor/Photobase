@@ -30,7 +30,6 @@ if (isset($_POST['upload']))
     {
         $loader = new Upload($destination);
         $loader->setMaxSize($max);
-        $loader->allowAllTypes();
         $loader->upload();
         $result = $loader->getMessages();
     } 
@@ -75,7 +74,6 @@ if (isset($_POST['upload']))
                 echo '<ul class="alert alert-success" role="alert">';
                 foreach ($result as $message) {
                     echo "<li>{$message}</li>";
-                    echo '<pre>', print_r($_FILES), '</pre>';
                 }
                 echo '</ul>';
             } ?>
