@@ -5,6 +5,12 @@ namespace PhpSolutions\File;
 class Upload
 {
     /**
+     * Makes renaming duplicates optional
+     * @var bool
+     */
+    protected $renameDuplicates;
+
+    /**
      * Destination of the folder to upload to
      * @var string
      */
@@ -78,10 +84,12 @@ class Upload
     }
 
     /**
-     * Takes the first element in the $_FILES array regardless of the name used in the form.
+     * Takes the first element in the $_FILES array regardless of the name used
+     * in the form. Also sets the value for renameDuplicates variable
      */
-    public function upload() 
+    public function upload($renameDuplicates = true) 
     {
+        $this->renameDuplicates = $renameDuplicates;
         $uploaded = current($_FILES);
 
         if ($this->checkFile($uploaded))
@@ -287,6 +295,27 @@ class Upload
             if (in_array($extension, $this->notTrusted) || empty($extension))
             {
                 $this->newName = $nospaces . $this->suffix;
+            }
+        }
+
+        if ($this->renameDuplicates)
+        {
+            $name = isset($this->newName) ? $this->newName : $file['name'];
+            $existing = scandir($this->destination);
+            if (in_array($name, $existing))
+            {
+                // rename file
+                $basename = pathinfo($name, PATHINFO_FILENAME);
+                $extension = pathinfo($name, PATHINFO_EXTENSION);
+                $i = 1;
+                do
+                {
+                    $this->newName = $basename . '_' . $i++;
+                    if (!empty($extension))
+                    {
+                        $this->newName .= ".$extension";
+                    }
+                } while (in_array($this->newName, $existing));
             }
         }
     }

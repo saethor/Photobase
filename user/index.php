@@ -30,7 +30,7 @@ if (isset($_POST['upload']))
     {
         $loader = new Upload($destination);
         $loader->setMaxSize($max);
-        $loader->upload();
+        $loader->upload(true);
         $result = $loader->getMessages();
     } 
     catch (Exception $e) 
