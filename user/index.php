@@ -18,11 +18,11 @@ foreach ($db_man->imageList() as $key => $value) {
 }
 
 // Max file size limit 
-$max = 51200;
+$max = 5120000;
 if (isset($_POST['upload']))
 {
     // Define the path to the upload folder
-    $destination = 'N:/xampp/htdocs/Photobase/user/images/';
+    $destination = '/Users/Saethor/Protjects/Photobase/user/images/';
 
     require_once '../PhpSolutions/File/Upload.php';
     

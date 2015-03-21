@@ -14,7 +14,7 @@ class Upload
      * Maximum file size
      * @var integer
      */ 
-    protected $max = 51200;
+    protected $max = 5120000;
     
     /**
      * Error Messages
@@ -30,7 +30,8 @@ class Upload
         'image/gif',
         'image/jpeg',
         'image/pjpeg',
-        'image/png'
+        'image/png',
+        'image/jpg'
     ];
 
     public function __construct($path) 
@@ -146,6 +147,47 @@ class Upload
                 $this->messages[] = 'Sorry, there was a problem uploading ' . $file['name'];
                 break;
         }
+    }
+
+    protected function checkSize($file) 
+    {
+        if ($file['error'] == 1 || $file['error'] == 2)
+        {
+            return false;
+        }
+        elseif ($file['size'] == 0)
+        {
+            $this->messages[] = $file['name'] . ' is an empty file';
+            return false;
+        }
+        elseif ($file['size'] > $this->max)
+        {
+            $this->messages[] = $file['name'] . ' exceeds the maximum 
+                size for a file (' . $this->getMaxSize() . ')';
+            return false;
+        }
+        else 
+        {
+            return true;
+        }
+    }
+
+    protected function checkType($file)
+    {
+        if (in_array($file['type'], $this->permitted))
+        {
+            return true;
+        }
+        else 
+        {
+            $this->messages[] = $file['name'] . ' is not permitted type of file.';
+            return false;
+        }
+    }
+
+    public function getMaxSize()
+    {
+        return number_format($this->max/1024, 1) . ' KB';
     }
 
 
