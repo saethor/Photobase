@@ -68,16 +68,13 @@ if (isset($_POST['upload']))
         <div class="row">
             <h2 class="section-title">Upload a new image</h2>
             
-            <?php 
-            if (isset($result)) 
-            {
-                echo '<ul class="alert alert-success" role="alert">';
-                foreach ($result as $message) {
-                    echo "<li>{$message}</li>";
-                }
-                echo '<pre>', print_r($_FILES), '</pre>';
-                echo '</ul>';
-            } ?>
+            <?php if (isset($result)): ?>
+                <ul class="alert alert-success" role="alert">'
+                <?php foreach ($result as $message):  ?>
+                    <li><?= $message ?></li>
+                <?php endforeach; ?>
+                </ul>
+            <?php endif; ?>
             <form method="post" enctype="multipart/form-data" id="uploadImage" class="">
                 <div class="col-md-6 form-group">
                     <label for="image">Upload image</label>
