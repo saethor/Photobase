@@ -75,13 +75,14 @@ if (isset($_POST['upload']))
                 foreach ($result as $message) {
                     echo "<li>{$message}</li>";
                 }
+                echo '<pre>', print_r($_FILES), '</pre>';
                 echo '</ul>';
             } ?>
             <form method="post" enctype="multipart/form-data" id="uploadImage" class="">
                 <div class="col-md-6 form-group">
                     <label for="image">Upload image</label>
                     <input type="hidden" name="MAX_FILE_SIZE" value="<?= $max; ?>">
-                    <input type="file" name="image" id="image" class="form-control">
+                    <input type="file" name="image[]" id="image" class="form-control" multiple>
                 </div>
                 
                 <div class="col-md-12 form-group">
