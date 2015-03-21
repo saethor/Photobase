@@ -21,6 +21,12 @@ class Upload
      * @var array
      */
     protected $mesages = [];
+
+    /**
+     * Controls whether the MIME type should be checked.
+     * @var boolean
+     */
+    public $typeCheckingOn = true;
     
     /**
      * Array of image MIME types that are allowed
@@ -66,7 +72,7 @@ class Upload
     }
 
     /**
-     * Checks if the file is Ok
+     * Checks if the file is Ok and all the rules are being followed
      * @param  string $file
      * @return bool       
      */
@@ -94,10 +100,14 @@ class Upload
             $accept = false;
         }
 
-        if (!$this->checkType($file))
-        {
-            $accept = false;
+        if ($this->typeCheckingOn) 
+        {    
+            if (!$this->checkType($file))
+            {
+                $accept = false;
+            }
         }
+
         return $accept;
     }
 
@@ -204,6 +214,14 @@ class Upload
             $this->messages[] = $file['name'] . ' is not permitted type of file.';
             return false;
         }
+    }
+
+    /**
+     * Changes typeCheckingOn to flase so all types of files can be uploaded
+     */
+    protected function allowAllTypes() 
+    {
+        $this->typeCheckingOn = false;
     }
 
     /**
