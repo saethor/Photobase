@@ -39,6 +39,26 @@ if (isset($_POST['upload']))
     }
 
 }
+$folder = 'N:/xampp/htdocs/Photobase/assets/images/';
+use PhpSolutions\Image\Thumbnail;
+
+if (isset($_POST['create']))
+{
+    require_once('../PhpSolutions/Image/Thumbnail.php');
+    try
+    {
+        $thumb = new Thumbnail($_POST['pix']);
+        $thumb->setDestination('N:/upload_test/thumbs');
+        $thumb->setMaxSize(100);
+        $thumb->setSuffix('small');
+        $thumb->test();
+    } catch (Exception $e)
+    {
+        echo $e->getMessage();
+    }
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +81,28 @@ if (isset($_POST['upload']))
 
 <body>
 
-    <?php require '../includes/nav.inc.php'; ?>
+    <?php // require '../includes/nav.inc.php'; ?>
+
+    <form method="post" action="">
+        <p>
+            <select name="pix" id="pix">
+                <option value="">Select an image</option>
+                <?php 
+                $files = new FilesystemIterator('../assets/images');
+                $images = new RegexIterator($files, '/\.(?:jpg|png|gif)$/i');
+                foreach ($images as $image) {
+                    $filename = $image->getFilename();
+                ?>
+                <option value="<?= $folder . $filename; ?>"><?= $filename; ?></option>
+                <?php } ?>
+            </select>
+        </p>
+        <p>
+            <input type="submit" name="create" value="Create Thumbnail">
+        </p>
+    </form>
+
+    <?php die(); ?>
 
     <section class="section-contact" id="section-contact">
 
