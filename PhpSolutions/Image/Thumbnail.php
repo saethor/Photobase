@@ -96,6 +96,18 @@ class Thumbnail
         }
     }
 
+    public function create()
+    {
+        if ($this->canProcess && $this->originalWidth != 0)
+        {
+            $this->calculateSize($this->originalWidth, $this->originalHeight);
+        }
+        elseif ($this->originalWidth == 0) 
+        {
+            $this->messages[] = 'Cannot determine size of ' . $this->original;
+        }
+    }
+
     public function test()
     {
         echo 'File: ' . $this->original . '<br/>';
@@ -106,6 +118,8 @@ class Thumbnail
         echo 'Destination: ' . $this->destination . '<br>';
         echo 'Max size: ' . $this->maxSize . '<br>';
         echo 'Suffix: ' . $this->suffix . '<br>';
+        echo 'Thumb width: ' . $this->thumbWidth . '<br>';
+        echo 'Thumb height ' . $this->thumbHeight . '<br>';
 
         if ($this->messages)
         {
@@ -123,6 +137,25 @@ class Thumbnail
             // Extract the characters after 'image/'
             $this->imageType = substr($mime, 6);
         }
+    }
+
+    protected function calculateSize($width, $height)
+    {
+        if ($width <= $this->maxSize && $height <= $this->maxSize)
+        {
+            $ratio = 1;
+        }
+        elseif ($width > $height)
+        {
+            $ratio = $this->maxSize/$width;
+        }
+        else
+        {
+            $ratio = $this->maxSize/$height;
+        }
+
+        $this->thumbWidth = round($width * $ratio);
+        $this->thumbHeight = round($height * $ratio);
     }
 
 
