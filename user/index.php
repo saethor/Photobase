@@ -51,6 +51,7 @@ if (isset($_POST['create']))
         $thumb->setDestination('N:/upload_test/thumbs');
         $thumb->setMaxSize(100);
         $thumb->setSuffix('small');
+        $thumb->create();
         $thumb->test();
     } catch (Exception $e)
     {

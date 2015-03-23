@@ -157,7 +157,4 @@ class Thumbnail
         $this->thumbWidth = round($width * $ratio);
         $this->thumbHeight = round($height * $ratio);
     }
-
-
-
 }
