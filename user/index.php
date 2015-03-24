@@ -2,7 +2,7 @@
 require_once '../app/init.php';
 require_once '../includes/session_timeout.php';
 
-use PhpSolutions\File\Upload;
+use PhpSolutions\Image\ThumbnailUpload;
 
 // Loops through images in database in filters out used catagories
 $tabs = [];
@@ -23,14 +23,16 @@ if (isset($_POST['upload']))
 {
     // Define the path to the upload folder
     $destination = '/Users/Saethor/Protjects/Photobase/user/images/';
+    $destinationThumb = '/Users/Saethor/Protjects/Photobase/user/images/thumbnails';
 
-    require_once '../PhpSolutions/File/Upload.php';
+    require_once '../PhpSolutions/Image/ThumbnailUpload.php';
     
     try 
     {
-        $loader = new Upload($destination);
+        $loader = new ThumbnailUpload($destination);
+        $loader->setThumbDestination($destinationThumb);
         $loader->setMaxSize($max);
-        $loader->upload(true);
+        $loader->upload();
         $result = $loader->getMessages();
     } 
     catch (Exception $e) 
@@ -82,39 +84,7 @@ if (isset($_POST['create']))
 
 <body>
 
-    <?php // require '../includes/nav.inc.php'; ?>
-
-    <?php 
-        if (isset($messages) && !empty($messages))
-        {
-            echo '<ul>';
-            foreach ($messages as $message) {
-                echo "<li>{$message}</li>";
-            }
-            echo '</ul>';
-        }
-    ?>
-
-    <form method="post" action="">
-        <p>
-            <select name="pix" id="pix">
-                <option value="">Select an image</option>
-                <?php 
-                $files = new FilesystemIterator('../assets/images');
-                $images = new RegexIterator($files, '/\.(?:jpg|png|gif)$/i');
-                foreach ($images as $image) {
-                    $filename = $image->getFilename();
-                ?>
-                <option value="<?= $folder . $filename; ?>"><?= $filename; ?></option>
-                <?php } ?>
-            </select>
-        </p>
-        <p>
-            <input type="submit" name="create" value="Create Thumbnail">
-        </p>
-    </form>
-
-    <?php die(); ?>
+    <?php require '../includes/nav.inc.php'; ?>
 
     <section class="section-contact" id="section-contact">
 
@@ -134,7 +104,7 @@ if (isset($_POST['create']))
                 <div class="col-md-6 form-group">
                     <label for="image">Upload image</label>
                     <input type="hidden" name="MAX_FILE_SIZE" value="<?= $max; ?>">
-                    <input type="file" name="image" id="image" class="form-control">
+                    <input type="file" name="image" id="image" class="form-control" multiple>
                 </div>
                 
                 <div class="col-md-12 form-group">
