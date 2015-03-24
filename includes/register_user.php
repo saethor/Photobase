@@ -2,7 +2,7 @@
 
 use Photobase\Authenticate\CheckPassword;
 
-require_once __DIR__ . '/../Authenticate/CheckPassword.php';
+require_once __DIR__ . '/../PhpSolutions/Authenticate/CheckPassword.php';
 
 $usernameMinChars = 6;
 $errors = [];
