@@ -7,12 +7,35 @@ use PhpSolutions\File\Upload;
 require_once __DIR__ . '/../File/Upload.php';
 require_once 'Thumbnail.php';
 
+/**
+ * Class that creates thumbnail while uploading
+ */
 Class ThumbnailUpload extends Upload
-{
+{   
+    /**
+     * Destination of the thumbnail
+     * @var string
+     */
     protected $thumbDestination;
+    
+    /**
+     * If original image is suposed to be deleted after the thumbnail has been
+     * generated
+     * @var bool
+     */
     protected $deleteOriginal;
+    
+    /**
+     * Preferd suffix.
+     * @var string
+     */
     protected $suffix = '_thb';
 
+    /**
+     * Constructor for the object that inizializes the variables above
+     * @param  string  $path           Sets the parent class constructor
+     * @param  boolean $deleteOriginal 
+     */
     public function __constructor($path, $deleteOriginal = false)
     {
         parent::__constructor($path);
@@ -20,6 +43,10 @@ Class ThumbnailUpload extends Upload
         $this->deleteOriginal = $deleteOriginal;
     }
 
+    /**
+     * Sets the destination for the thumbnail. If error its throws a exception!
+     * @param string $path String to the thumbnail directory
+     */
     public function setThumbDestination($path)
     {
         if (!is_dir($path) || !is_writable($path))
@@ -29,6 +56,11 @@ Class ThumbnailUpload extends Upload
         $this->thumbDestination = $path;
     }
 
+    /**
+     * Sets the suffix varible for the thumbnail. If nothing is inputed it sets
+     * it to a empty string.
+     * @param string $suffix Overrides the default suffix
+     */
     public function setThumbSuffix($suffix)
     {
         if (preg_match('/\w+/', $suffix))
@@ -48,11 +80,19 @@ Class ThumbnailUpload extends Upload
         }
     }
 
+    /**
+     * Overrides the allowAllTypes from the parents class and disables typeCheckingOn function
+     * @param  boolean $suffix  Has to bee, else it throws a strict error
+     */
     public function allowAllTypes($suffix = true) 
     {
         $this->typeCheckingOn = true;
     }
 
+    /**
+     * Uses the thumbnail class to create a new Thumbnail
+     * @param  string $image Path to the uploaded image
+     */
     protected function createThumbnail($image)
     {
         $thumb = new Thumbnail($image);
@@ -63,6 +103,10 @@ Class ThumbnailUpload extends Upload
         $this->messages = array_merge($this->messages, $messages);
     }
 
+    /**
+     * Overrides the movefile method from the parent class. 
+     * @param  string $file String to the file that is suposed to be moved
+     */
     protected function moveFile($file)
     {
         $filename = isset($this->newName) ? $this->newName : $file['name'];
