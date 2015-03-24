@@ -39,7 +39,7 @@ if (isset($_POST['upload']))
     }
 
 }
-$folder = 'N:/xampp/htdocs/Photobase/assets/images/';
+$folder = '/Users/Saethor/Protjects/Photobase/assets/images/';
 use PhpSolutions\Image\Thumbnail;
 
 if (isset($_POST['create']))
@@ -48,11 +48,11 @@ if (isset($_POST['create']))
     try
     {
         $thumb = new Thumbnail($_POST['pix']);
-        $thumb->setDestination('N:/upload_test/thumbs');
+        $thumb->setDestination('/Users/Saethor/Protjects/Photobase/user/images');
         $thumb->setMaxSize(100);
         $thumb->setSuffix('small');
         $thumb->create();
-        $thumb->test();
+        $messages = $thumb->getMessages();
     } catch (Exception $e)
     {
         echo $e->getMessage();
@@ -83,6 +83,17 @@ if (isset($_POST['create']))
 <body>
 
     <?php // require '../includes/nav.inc.php'; ?>
+
+    <?php 
+        if (isset($messages) && !empty($messages))
+        {
+            echo '<ul>';
+            foreach ($messages as $message) {
+                echo "<li>{$message}</li>";
+            }
+            echo '</ul>';
+        }
+    ?>
 
     <form method="post" action="">
         <p>

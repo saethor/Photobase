@@ -101,6 +101,7 @@ class Thumbnail
         if ($this->canProcess && $this->originalWidth != 0)
         {
             $this->calculateSize($this->originalWidth, $this->originalHeight);
+            $this->createThumbnail();
         }
         elseif ($this->originalWidth == 0) 
         {
@@ -108,23 +109,28 @@ class Thumbnail
         }
     }
 
-    public function test()
-    {
-        echo 'File: ' . $this->original . '<br/>';
-        echo 'Original width: ' . $this->originalWidth . '<br>';
-        echo 'Original height: ' . $this->originalHeight . '<br>';
-        echo 'Base name :' . $this->basename . '<br>';
-        echo 'Image Type: ' . $this->imageType . '<br>';
-        echo 'Destination: ' . $this->destination . '<br>';
-        echo 'Max size: ' . $this->maxSize . '<br>';
-        echo 'Suffix: ' . $this->suffix . '<br>';
-        echo 'Thumb width: ' . $this->thumbWidth . '<br>';
-        echo 'Thumb height ' . $this->thumbHeight . '<br>';
+    // public function test()
+    // {
+    //     echo 'File: ' . $this->original . '<br/>';
+    //     echo 'Original width: ' . $this->originalWidth . '<br>';
+    //     echo 'Original height: ' . $this->originalHeight . '<br>';
+    //     echo 'Base name :' . $this->basename . '<br>';
+    //     echo 'Image Type: ' . $this->imageType . '<br>';
+    //     echo 'Destination: ' . $this->destination . '<br>';
+    //     echo 'Max size: ' . $this->maxSize . '<br>';
+    //     echo 'Suffix: ' . $this->suffix . '<br>';
+    //     echo 'Thumb width: ' . $this->thumbWidth . '<br>';
+    //     echo 'Thumb height ' . $this->thumbHeight . '<br>';
 
-        if ($this->messages)
-        {
-            print_r($this->messages);
-        }
+    //     if ($this->messages)
+    //     {
+    //         print_r($this->messages);
+    //     }
+    // }
+    
+    public function getMessages()
+    {
+        return $this->messages;
     }
 
     protected function checkType($mime) 
@@ -156,5 +162,59 @@ class Thumbnail
 
         $this->thumbWidth = round($width * $ratio);
         $this->thumbHeight = round($height * $ratio);
+    }
+
+    protected function createImageResource() 
+    {
+        if ($this->imageType == 'jpeg')
+        {
+            return imagecreatefromjpeg($this->original);
+        }
+        elseif ($this->imageType == 'png')
+        {
+            return imagecreatefrompng($this->original);
+        }
+        elseif ($this->imageType == 'gif')
+        {
+            return imagecreatefromgif($this->original);
+        }
+    }
+
+    protected function createThumbnail()
+    {
+        $resource = $this->createImageResource();
+        $thumb = imagecreatetruecolor($this->thumbWidth, $this->thumbHeight);
+        imagecopyresampled($thumb, $resource, 0, 0, 0, 0, $this->thumbWidth, 
+            $this->thumbHeight, $this->originalWidth, $this->originalHeight);
+        $newname = $this->basename . $this->suffix;
+
+        if ($this->imageType == 'jpeg')
+        {
+            $newname .= '.jpeg';
+            $success = imagejpeg($thumb, $this->destination . $newname, 100);
+        }
+        elseif ($this->imageType == 'png')
+        {
+            $newname .= '.png';
+            $success = imagepng($thumb, $this->destination . $newname, 0);
+        }
+        elseif ($this->imageType == 'gif')
+        {
+            $newname .= '.gif';
+            $success = imagegif($thumb, $this->destination . $newname);
+        }
+
+        if ($success)
+        {
+            $this->messages[] = "{$newname} created successfully.";
+        }
+        else 
+        {
+            $this->messages[] = "Couldn't create a thumbnail for " . 
+                basename($this->original);
+        }
+
+        imagedestroy($resource);
+        imagedestroy($thumb);
     }
 }
