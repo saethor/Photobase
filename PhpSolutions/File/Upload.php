@@ -89,13 +89,35 @@ class Upload
      */
     public function upload($renameDuplicates = true) 
     {
+
         $this->renameDuplicates = $renameDuplicates;
         $uploaded = current($_FILES);
 
-        if ($this->checkFile($uploaded))
+        if (is_array($uploaded['name']))
         {
-            $this->moveFile($uploaded);
+            // Deal with multiple uploads
+            foreach ($uploaded['name'] as $key => $value) 
+            {
+                $currentFile['name'] = $uploaded['name'][$key];
+                $currentFile['type'] = $uploaded['type'][$key];
+                $currentFile['tmp_name'] = $uploaded['tmp_name'][$key];
+                $currentFile['error'] = $uploaded['error'][$key];
+                $currentFile['size'] = $uploaded['size'][$key];
+                if ($this->checkFile($currentFile))
+                {
+                    $this->moveFile($currentFile);
+                }
+
+            }
         }
+        else 
+        {
+            if ($this->checkFile($uploaded))
+            {
+                $this->moveFile($uploaded);
+            }
+        }
+        
     }
 
     /**
