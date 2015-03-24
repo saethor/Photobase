@@ -48,7 +48,7 @@ Class ThumbnailUpload extends Upload
         }
     }
 
-    public function allowAllTypes()
+    public function allowAllTypes($suffix = true) 
     {
         $this->typeCheckingOn = true;
     }
