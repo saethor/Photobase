@@ -121,20 +121,19 @@ if (isset($_POST['create']))
         <div class="row">
             <h2 class="section-title">Upload a new image</h2>
             
-            <?php 
-            if (isset($result)) 
-            {
-                echo '<ul class="alert alert-success" role="alert">';
-                foreach ($result as $message) {
-                    echo "<li>{$message}</li>";
-                }
-                echo '</ul>';
-            } ?>
+            <?php if (isset($result)): ?>
+                <div class="alert alert-info alert-dismissible" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <?php foreach ($result as $message):  ?>
+                        <p><?= $message ?></p>
+                    <?php endforeach; ?>
+                </div>
+            <?php endif; ?>
             <form method="post" enctype="multipart/form-data" id="uploadImage" class="">
                 <div class="col-md-6 form-group">
                     <label for="image">Upload image</label>
                     <input type="hidden" name="MAX_FILE_SIZE" value="<?= $max; ?>">
-                    <input type="file" name="image" id="image" class="form-control">
+                    <input type="file" name="image[]" id="image" class="form-control" multiple>
                 </div>
                 
                 <div class="col-md-12 form-group">
