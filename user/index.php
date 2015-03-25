@@ -41,26 +41,6 @@ if (isset($_POST['upload']))
     }
 
 }
-$folder = '/Users/Saethor/Protjects/Photobase/assets/images/';
-use PhpSolutions\Image\Thumbnail;
-
-if (isset($_POST['create']))
-{
-    require_once('../PhpSolutions/Image/Thumbnail.php');
-    try
-    {
-        $thumb = new Thumbnail($_POST['pix']);
-        $thumb->setDestination('/Users/Saethor/Protjects/Photobase/user/images');
-        $thumb->setMaxSize(100);
-        $thumb->setSuffix('small');
-        $thumb->create();
-        $messages = $thumb->getMessages();
-    } catch (Exception $e)
-    {
-        echo $e->getMessage();
-    }
-}
-
 
 ?>
 
