@@ -110,8 +110,8 @@ if (isset($_POST['upload']))
                 <!-- Counter checks if it is the first element, if so it adds the class active -->
                 <?php $counter = 0;
                 foreach ($tabs as $key): ?>
-                    <li role="presentation"  class="<?php echo ($counter++ == 0) ? 'active' : ''; ?>">
-                        <a href="#<?php echo $key ?>" aria-controls="<?php echo $key ?>" role="tab" data-toggle="tab"><?php echo ucfirst($key) ?></a>
+                    <li role="presentation"  class="<?= ($counter++ == 0) ? 'active' : ''; ?>">
+                        <a href="#<?= $key ?>" aria-controls="<?= $key ?>" role="tab" data-toggle="tab"><?= ucfirst($key) ?></a>
                     </li>
                 <?php endforeach ?>
             </ul>
@@ -123,14 +123,20 @@ if (isset($_POST['upload']))
                 <?php $counter = 0; 
                 foreach ($tabs as $key): ?>
 
-                    <div role="tabpanel" class="tab-pane <?php echo ($counter++ == 0) ? 'active' : ''; ?>" id="<?php echo $key ?>">          
+                    <div role="tabpanel" class="tab-pane <?= ($counter++ == 0) ? 'active' : ''; ?>" id="<?= $key ?>">          
                     <?php foreach ($db_man->imageList() as $key2 => $value): 
                         if ($value[2] == $key): ?>     
 
-                        <div class="col-xs-6 col-sm-4 col-md-3 item">
-                            <a href="<?php echo $path; ?>users/change.php?id=<?php echo $db_man->getImageInfo($value[0])[0]; ?>">
-                                <img src="<?php echo $path; ?>users/<?php echo $db_man->getImageInfo($value[0])[2]; ?>" alt="<?php echo $db_man->getImageInfo($value[0])[3]; ?>">
-                            </a>
+                        <div class="col-xs-6 col-sm-4 col-md-3">
+                            <div class="thumbnail">
+                                <a href="<?= $path . 'users/' . $db_man->getImageInfo($value[0])[2]; ?>">
+                                    <img src="<?= $path . 'users/' . $db_man->getImageInfo($value[0])[2]; ?>" alt="<?= $db_man->getImageInfo($value[0])[3]; ?>" class="img-responsive">
+                                </a>
+                                <div class="caption">
+                                    <p><?= $db_man->getImageInfo($value[0])[3]; ?> </p>
+                                    <p><a href="<?= $path . 'users/change.php?id=' . $db_man->getImageInfo($value[0])[0];?>" class="btn btn-primary">Change</a>
+                                </div>
+                            </div>
                         </div> 
 
                     <?php endif; endforeach; ?>    
