@@ -40,9 +40,6 @@ if (!$errors)
     if ($db_man->newUser($firstname, $lastname, $email, $username, $password))
     {
         $result = "$username registered.";
-        mkdir(__DIR__ . '/../users/' . $username, 0777);
-        mkdir(__DIR__ . '/../users/' . $username . '/images/', 0777);
-        mkdir(__DIR__ . '/../users/' . $username . '/images/thumbnails', 0777);
     }
     else
     {

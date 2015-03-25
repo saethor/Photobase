@@ -55,7 +55,7 @@ if (isset($_POST['upload']))
     
 <?php foreach ($loader->returnImages() as $key => $value): ?>
     <div class="col-sm-12 col-md-4 col-lg-3">
-        <div class="thumbnail">
+        <div class="thumbnail" style="height: 600px; overflow-y: auto;">
             <img src="<?= $value ?>" class="img-responsive">
             <div class="caption">
 

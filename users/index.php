@@ -22,8 +22,8 @@ $max = 6000 * 1024; // 6000 KB
 if (isset($_POST['upload']))
 {
     // Define the path to the upload folder
-    $destination = $db_man->getUser($_SESSION['user_id'])[4] . '/images/';
-    $destinationThumb = $db_man->getUser($_SESSION['user_id'])[4] . '/images/thumbnails/';
+    $destination = 'images/';
+    $destinationThumb = 'images/thumbnails/';
 
     require_once '../PhpSolutions/Image/ThumbnailUpload.php';
     
@@ -80,7 +80,7 @@ if (isset($_POST['upload']))
                 </div>
             <?php endif; ?>
 
-            <form method="post" enctype="multipart/form-data" id="uploadImage" class="">
+            <form action="" method="post" enctype="multipart/form-data" id="uploadImage" class="">
                 <div class="col-md-6 form-group">
                     <label for="image">Upload image</label>
                     <input type="hidden" name="MAX_FILE_SIZE" value="<?= $max; ?>">
