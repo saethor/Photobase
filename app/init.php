@@ -1,6 +1,7 @@
 <?php
 
-include_once "class.datamanager.php";
+include_once __DIR__ . "/../PhpSolutions/Database/class.datamanager.php";
+use PhpSolutions\Database\DatabaseManager;
 $db_man = new DatabaseManager('tsuts.tskoli.is','0505943279_picturebase','0505943279','saethor94');
 
 $path = "/Photobase/";
