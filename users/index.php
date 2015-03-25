@@ -22,8 +22,8 @@ $max = 6000 * 1024; // 6000 KB
 if (isset($_POST['upload']))
 {
     // Define the path to the upload folder
-    $destination = 'N://xampp/htdocs/Photobase/users/images/';
-    $destinationThumb = 'N://xampp/htdocs/Photobase/users/images/thumbnails';
+    $destination = $db_man->getUser($_SESSION['user_id'])[4] . '/images/';
+    $destinationThumb = $db_man->getUser($_SESSION['user_id'])[4] . '/images/thumbnails/';
 
     require_once '../PhpSolutions/Image/ThumbnailUpload.php';
     
@@ -39,7 +39,6 @@ if (isset($_POST['upload']))
     {
         echo $e->getMessage();
     }
-
 }
 
 ?>
@@ -124,8 +123,8 @@ if (isset($_POST['upload']))
                     <?php foreach ($db_man->imageList() as $key2 => $value): 
                         if ($value[2] == $key): ?>                 
                         <div class="col-xs-6 col-sm-4 col-md-3 item">
-                            <a href="<?php echo $path; ?>assets/images/<?php echo $db_man->getImageInfo($value[0])[2]; ?>">
-                                <img src="<?php echo $path; ?>assets/images/<?php echo $db_man->getImageInfo($value[0])[2]; ?>" alt="<?php echo $db_man->getImageInfo($value[0])[3]; ?>">
+                            <a href="<?php echo $path; ?>users/<?php echo $db_man->getImageInfo($value[0])[2]; ?>">
+                                <img src="<?php echo $path; ?>users/<?php echo $db_man->getImageInfo($value[0])[2]; ?>" alt="<?php echo $db_man->getImageInfo($value[0])[3]; ?>">
                             </a>
                         </div> 
                     <?php endif; endforeach; ?>    

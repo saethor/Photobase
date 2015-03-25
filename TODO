@@ -3,3 +3,4 @@ Include database in uploadThumbnail class
 Make each user a new directory to upload to
   - Customize the upload class to directory structure
 
+Put change icon on each image that allows user to change data foreach image in database
