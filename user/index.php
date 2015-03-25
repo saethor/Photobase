@@ -22,8 +22,8 @@ $max = 6000 * 1024; // 6000 KB
 if (isset($_POST['upload']))
 {
     // Define the path to the upload folder
-    $destination = '/Users/Saethor/Protjects/Photobase/user/images/';
-    $destinationThumb = '/Users/Saethor/Protjects/Photobase/user/images/thumbnails';
+    $destination = 'N://xampp/htdocs/Photobase/user/images/';
+    $destinationThumb = 'N://xampp/htdocs/Photobase/user/images/thumbnails';
 
     require_once '../PhpSolutions/Image/ThumbnailUpload.php';
     
