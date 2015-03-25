@@ -20,7 +20,6 @@ if (preg_match('/\s/', $username))
 $checkPwd = new CheckPassword($password);
 $checkPwd->requireMixedCase();
 $checkPwd->requireNumbers(2);
-$checkPwd->requireSymbols();
 $passwordOK = $checkPwd->check();
 
 if (!$passwordOK) 
@@ -41,6 +40,9 @@ if (!$errors)
     if ($db_man->newUser($firstname, $lastname, $email, $username, $password))
     {
         $result = "$username registered.";
+        mkdir(__DIR__ . '/../users/' . $username, 0777);
+        mkdir(__DIR__ . '/../users/' . $username . '/images/', 0777);
+        mkdir(__DIR__ . '/../users/' . $username . '/images/thumbnails', 0777);
     }
     else
     {
