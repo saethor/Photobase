@@ -59,6 +59,8 @@ if (isset($_POST['upload']))
 
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link href="<?php echo $path; ?>assets/stylesheets/main.css" rel="stylesheet">
+    <link href="<?php echo $path; ?>assets/stylesheets/lightbox.css" rel="stylesheet">
+
 
 </head>
 
@@ -129,7 +131,7 @@ if (isset($_POST['upload']))
 
                         <div class="col-xs-6 col-sm-4 col-md-3">
                             <div class="thumbnail">
-                                <a href="<?= $path . 'users/' . $db_man->getImageInfo($value[0])[2]; ?>">
+                                <a href="<?= $path . 'users/' . $db_man->getImageInfo($value[0])[2]; ?>" data-lightbox="roadtrip">
                                     <img src="<?= $path . 'users/' . $db_man->getImageInfo($value[0])[2]; ?>" alt="<?= $db_man->getImageInfo($value[0])[3]; ?>" class="img-responsive">
                                 </a>
                                 <div class="caption">
@@ -155,6 +157,7 @@ if (isset($_POST['upload']))
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="<?= $path . 'assets/javascripts/lightbox.min.js' ?>"></script>
     <script src="<?php echo $path ?>assets/javascripts/bootstrap.min.js"></script>
     <script>
         $(function(){
