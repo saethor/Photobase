@@ -11,7 +11,7 @@ $now = time();
 $redirect = $path . 'login/';
 
 // If session variable not set, redirect to login page
-if (!isset($_SESSION['authenticated'])) 
+if (!isset($_SESSION['user_id'])) 
 {
     header("Location: {$redirect}");
     exit;

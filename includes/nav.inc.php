@@ -5,7 +5,7 @@ $dirname = basename(dirname($_SERVER['PHP_SELF']));
 <div class="navbar-wrapper">
     <div class="container">
 
-        <nav class="navbar navbar-default <?php echo ($dirname == 'users') ? 'users' : ''; ?>">
+        <nav class="navbar navbar-default <?php echo ($dirname == 'users') ? 'user' : ''; ?>">
             <div class="container">
 
 
@@ -30,12 +30,12 @@ $dirname = basename(dirname($_SERVER['PHP_SELF']));
                         <li <?php echo ($dirname == 'categories') ? 'class="active"' : ''; ?>>
                             <a href="<?php echo $path; ?>categories">Categories</a>
                         </li>
-                        <?php if (isset($_SESSION['authenticated'])): ?>
+                        <?php if (isset($_SESSION['user_id'])): ?>
                             <li>
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Username <span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?= $db_man->getUser($_SESSION['user_id'])[4]; ?> <span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
-                                        <a href="<?php echo $path . 'users/' ?>">User</a>
+                                        <a href="<?php echo $path . 'users/' ?>">Profile</a>
                                     </li>
                                     <li>
                                         <a href="<?php echo $path . 'includes/logout.php'; ?>">Logout</a> 

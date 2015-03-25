@@ -6,15 +6,15 @@ if (!isset($db_man))
 } 
 else 
 {
-    if ($db_man->validateUser($username, $password))
+    if ($userID = $db_man->validateUser($username, $password))
     {
-        $_SESSION['authenticated'] = 'Jethro Tull';
+        $_SESSION['user_id'] = $userID;
         $_SESSION['start'] = time();
         session_regenerate_id();
     }
 
     // If the session variable has been set, redirect
-    if (isset($_SESSION['authenticated'])) 
+    if (isset($_SESSION['user_id'])) 
     {
         header("Location: $redirect");
         exit;

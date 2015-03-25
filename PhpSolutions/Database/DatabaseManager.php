@@ -332,7 +332,7 @@
 				
 				$row = $statement->fetch(\PDO::FETCH_NUM);
 				
-				return ($row[0] == 1) ? true : false;
+				return $row[0];
 			}
 			catch(PDOException $e)
 			{
