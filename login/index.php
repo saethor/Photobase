@@ -10,7 +10,7 @@ require_once '../app/init.php';
 // Checks if user is already loged in and redirects to right page
 if (isset($_SESSION['authenticated'])) 
 {
-    header('Location: ../user/');
+    header('Location: ../users/');
     exit;
 }
 
@@ -48,11 +48,8 @@ if (isset($_POST['login']))
     $username = $_POST['username'];
     $password = $_POST['pwd'];
 
-    // location of usernames and passwords
-    $userlist = '../sessions/encrypted.csv';
-
     // location to redirect on success
-    $redirect = $path . 'user/';
+    $redirect = $path . 'users/';
 
     require_once '../includes/authenticate.php';
 }
