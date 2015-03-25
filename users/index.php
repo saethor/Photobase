@@ -125,11 +125,11 @@ if (isset($_POST['upload']))
                         if ($value[2] == $key): ?>     
 
                         <div class="col-xs-6 col-sm-4 col-md-3 item">
-                            <a href="<?php echo $path; ?>users/<?php echo $db_man->getImageInfo($value[0])[2]; ?>">
+                            <a href="<?php echo $path; ?>users/change.php?id=<?php echo $db_man->getImageInfo($value[0])[0]; ?>">
                                 <img src="<?php echo $path; ?>users/<?php echo $db_man->getImageInfo($value[0])[2]; ?>" alt="<?php echo $db_man->getImageInfo($value[0])[3]; ?>">
                             </a>
                         </div> 
-                        
+
                     <?php endif; endforeach; ?>    
                     </div>
 
