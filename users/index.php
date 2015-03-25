@@ -32,6 +32,7 @@ if (isset($_POST['upload']))
         $loader = new ThumbnailUpload($destination);
         $loader->setThumbDestination($destinationThumb);
         $loader->setMaxSize($max);
+        $loader->setThumbSuffix('');
         $loader->upload();
         $result = $loader->getMessages();
     } 
@@ -78,6 +79,7 @@ if (isset($_POST['upload']))
                     <?php endforeach; ?>
                 </div>
             <?php endif; ?>
+
             <form method="post" enctype="multipart/form-data" id="uploadImage" class="">
                 <div class="col-md-6 form-group">
                     <label for="image">Upload image</label>
@@ -98,9 +100,10 @@ if (isset($_POST['upload']))
         <div class="row" role="tabpanel">
 
         <?php if (empty($tabs)): ?>
-            <h2 class="section-title">Engar myndir til að birta</h2>
-        <?php else: ?>
-            <h2 class="section-title">Nýjustu myndirnar þínar</h2>
+            <h2 class="section-title">No images to display</h2>
+       
+       <?php else: ?>
+            <h2 class="section-title">Your photos</h2>
             
             <!-- Nav tabs -->
             <ul class="nav nav-tabs" role="tablist">

@@ -133,7 +133,7 @@ Class ThumbnailUpload extends Upload
 
             // Adds the path to the image to the database
             $this->dbmanager = new DatabaseManager('tsuts.tskoli.is','0505943279_picturebase','0505943279','saethor94');
-            $this->dbmanager->newImageInfo($filename, $this->destination . $filename, 'firstImage', 1);
+            $this->dbmanager->newImageInfo(null, $this->destination . $filename, null, 1);
 
             // Delete the uploaded image if required
             if ($this->deleteOriginal)

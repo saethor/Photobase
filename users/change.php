@@ -17,30 +17,30 @@ if (isset($_POST['save']))
     $imageName      = $_POST['image-name'];
     $imagePath      = $image[2];
     $imageText      = $_POST['image-text'];
-    $imageCategorie = $_POST['image-categorie'];
+    $imagecategory = $_POST['image-category'];
 
-    $db_man->updateImageInfo($imageId, $imageName, $imagePath, $imageText, $imageCategorie);
+    $db_man->updateImageInfo($imageId, $imageName, $imagePath, $imageText, $imagecategory);
 
     header("Location: {$redirect}");
     exit;
 }
 
-if (isset($_POST['create']))
+if (isset($_POST['create']) && isset($_POST['new-category']) && !empty($_POST['new-category']))
 {
     $imageId        = $_POST['image-id'];
     $imageName      = $_POST['image-name'];
     $imagePath      = $image[2];
     $imageText      = $_POST['image-text'];
-    $imageCategorie = $_POST['image-categorie'];
-    $newCategorie   = $_POST['new-categorie'];
-
-    $db_man->newCategory($newCategorie);
+    $imagecategory = $_POST['image-category'];
+    $newcategory   = $_POST['new-category'];
+    
+    $db_man->newCategory($newcategory);
 
     $image[0] = $imageId;
     $image[1] = $imageName;
     $image[2] = $imagePath;
     $image[3] = $imageText;
-    $image[4] = $newCategorie;
+    $image[4] = $newcategory;
 }
 ?>
 <!DOCTYPE html>
@@ -78,23 +78,24 @@ if (isset($_POST['create']))
                     <input type="hidden" name="image-id" value="<?= $image[0] ?>">
 
                     <div class="form-group">
-                        <label for="image-name">Image Name</label>
+                        <label for="image-name">Name:</label>
                         <input type="text" name="image-name" class="form-control" id="image-name" value="<?= $image[1]; ?>">
                     </div>
 
                     <div class="form-group">
-                        <label for="image-text">Image text</label>
+                        <label for="image-text">Description</label>
                         <textarea name="image-text" id="image-text" class="form-control" cols="30" rows="10"><?= $image[3]; ?></textarea>
                     </div>
 
                     <div class="form-group row">
-                        <!-- Choose from existing categorie -->
+                        <!-- Choose from existing category -->
                         <div class="col-sm-6">
-                            <label for="image-categorie">Image Categorie</label>
-                            <select name="image-categorie" id="image-categorie" class="form-control">
-                                <?php foreach ($db_man->categoryList() as $categorie): ?>
-                                    <option value="<?= $categorie[0] ?>" <?= ($categorie[1] == $image[4]) ? 'selected' : ''; ?> >
-                                        <?= $categorie[1] ?>
+                            <label for="image-category">category</label>
+                            <select name="image-category" id="image-category" class="form-control">
+                                <option value="">Choose a category</option>
+                                <?php foreach ($db_man->categoryList() as $category): ?>
+                                    <option value="<?= $category[0] ?>" <?= ($category[1] == $image[4]) ? 'selected' : ''; ?> >
+                                        <?= $category[1] ?>
                                     </option>
                                 <?php endforeach ?>
                             </select>  
@@ -103,10 +104,10 @@ if (isset($_POST['create']))
                         <!-- Create a new one -->
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="new-categorie">Create new categorie</label>
+                                <label for="new-category">Create new category</label>
                                 <div class="input-group">
 
-                                    <input type="text" name="new-categorie" class="form-control">
+                                    <input type="text" name="new-category" class="form-control">
                                     <span class="input-group-btn">
                                         <input type="submit" name="create" value="Create" class="btn btn-primary">
                                     </span>
