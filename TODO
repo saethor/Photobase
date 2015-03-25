@@ -4,3 +4,6 @@ Make each user a new directory to upload to
   - Customize the upload class to directory structure
 
 Put change icon on each image that allows user to change data foreach image in database
+
+Drag and drop on upload
+ - Offer to change info for image before save
