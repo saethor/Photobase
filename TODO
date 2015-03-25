@@ -1,0 +1,5 @@
+Include database in uploadThumbnail class
+
+Make each user a new directory to upload to
+  - Customize the upload class to directory structure
+
