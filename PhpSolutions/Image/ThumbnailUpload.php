@@ -34,6 +34,12 @@ Class ThumbnailUpload extends Upload
     protected $suffix = '_thb';
 
     /**
+     * Array containing all of the uploaded images
+     * @var [type]
+     */
+    protected $uploadedImages = [];
+
+    /**
      * Constructor for the object that inizializes the variables above
      * @param  string  $path           Sets the parent class constructor
      * @param  boolean $deleteOriginal 
@@ -134,6 +140,8 @@ Class ThumbnailUpload extends Upload
             // Adds the path to the image to the database
             $this->dbmanager = new DatabaseManager('tsuts.tskoli.is','0505943279_picturebase','0505943279','saethor94');
             $this->dbmanager->newImageInfo(null, $this->destination . $filename, null, 1);
+            $this->uploadedImages[] = $this->destination . $filename;
+
 
             // Delete the uploaded image if required
             if ($this->deleteOriginal)
@@ -146,5 +154,10 @@ Class ThumbnailUpload extends Upload
         {
             $this->messages[] = 'Could not upload ' . $file['name'];
         }
+    }
+
+    public function returnImages()
+    {
+        return $this->uploadedImages;
     }
 }   
