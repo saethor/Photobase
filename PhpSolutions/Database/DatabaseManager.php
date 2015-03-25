@@ -27,7 +27,7 @@
 		{
 			try
 			{
-				$this->connection = new PDO("mysql:host=$server;dbname=$database", $user, $password);
+				$this->connection = new \PDO("mysql:host=$server;dbname=$database", $user, $password);
 			}
 			catch (PDOException $e)
 			{
@@ -73,7 +73,7 @@
 			{
 				$statement->execute();
 				
-				$row = $statement->fetch(PDO::FETCH_NUM);
+				$row = $statement->fetch(\PDO::FETCH_NUM);
 				return $row;
 			}
 			catch(PDOException $e)
@@ -144,7 +144,7 @@
 				$arr = array();
 				$statement->execute();
 				
-				while ($row = $statement->fetch(PDO::FETCH_NUM)) 
+				while ($row = $statement->fetch(\PDO::FETCH_NUM)) 
 				{
 					array_push($arr,$row);
 				}
@@ -201,7 +201,7 @@
 			{
 				$statement->execute();
 				
-				$row = $statement->fetch(PDO::FETCH_NUM);
+				$row = $statement->fetch(\PDO::FETCH_NUM);
 				return $row;
 			}
 			catch(PDOException $e)
@@ -280,7 +280,7 @@
 				$arr = array();
 				$statement->execute();
 				
-				while ($row = $statement->fetch(PDO::FETCH_NUM)) 
+				while ($row = $statement->fetch(\PDO::FETCH_NUM)) 
 				{
 					array_push($arr,$row);
 				}
@@ -300,7 +300,7 @@
 			{
 				$statement->execute();
 				
-				$row = $statement->fetch(PDO::FETCH_NUM);
+				$row = $statement->fetch(\PDO::FETCH_NUM);
 				return $row[0];
 			}
 			catch(PDOException $e)
@@ -330,7 +330,7 @@
 			{
 				$statement->execute();
 				
-				$row = $statement->fetch(PDO::FETCH_NUM);
+				$row = $statement->fetch(\PDO::FETCH_NUM);
 				
 				return ($row[0] == 1) ? true : false;
 			}
@@ -387,7 +387,7 @@
 			{
 				$statement->execute();
 				
-				$row = $statement->fetch(PDO::FETCH_NUM);
+				$row = $statement->fetch(\PDO::FETCH_NUM);
 				return $row;
 			}
 			catch(PDOException $e)
@@ -410,7 +410,7 @@
 				$arr = array();
 				$statement->execute();
 				
-				while ($row = $statement->fetch(PDO::FETCH_NUM)) 
+				while ($row = $statement->fetch(\PDO::FETCH_NUM)) 
 				{
 					array_push($arr,$row);
 				}
