@@ -81,6 +81,7 @@ $heroTitle = $title;
 
     <?php include '../includes/hero.inc.php'; ?>
 
+    <?php include '../includes/footer.inc.php'; ?>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

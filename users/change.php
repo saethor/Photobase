@@ -70,7 +70,7 @@ if (isset($_POST['create']) && isset($_POST['new-category']) && !empty($_POST['n
             <h2 class="section-title">Change image information</h2>
 
             <div class="col-xs-12 col-md-6 col-lg-4">
-                <img src="<?= $image[2]; ?>" alt="<?= $image[3] ?>" class="img-responsive">
+                <img src="<?= 'images/' . $image[2]; ?>" alt="<?= $image[3] ?>" class="img-responsive">
             </div>
 
             <div class="col-xs-12 col-md-6 col-lg-8">

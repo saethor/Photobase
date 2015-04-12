@@ -24,3 +24,7 @@ Temporary Items
 
 ### Sass ###
 .sass-cache
+
+
+# uploaded files
+users/images/**/*

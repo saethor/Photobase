@@ -40,6 +40,12 @@ Class ThumbnailUpload extends Upload
     protected $uploadedImages = [];
 
     /**
+     * Link simplifyes downloading the image for user
+     * @var string
+     */
+    protected $downloadLink;
+
+    /**
      * Constructor for the object that inizializes the variables above
      * @param  string  $path           Sets the parent class constructor
      * @param  boolean $deleteOriginal 

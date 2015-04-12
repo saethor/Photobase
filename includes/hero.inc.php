@@ -1,7 +1,7 @@
 <main class="hero" style="background: url(<?php echo $path . 'assets/images/' . $selected . '.jpg'; ?>) no-repeat center center fixed; background-size: cover; -webkit-background-size: cover; -moz-background-size: cover; -o-background-size: cover;">
     <div class="container">
 
-        <?php if ($dirname == 'login'): ?>
+        <?php // if ($dirname == 'login'): ?>
             <!-- LOGIN SECTION -->
             <div class="row">
                 <section class="section-contact col-md-6" id="section-contact">
@@ -198,8 +198,8 @@
                 </section>
             </div>
             
-        <?php else: ?>
-        <div class="hero-title">
+        <?php//  else: ?>
+        <!-- <div class="hero-title">
             <h1><?php echo $heroTitle; ?></h1>
         </div>
         
@@ -225,8 +225,8 @@
                 <a href="#section-album"><i class="fa fa-angle-double-down"></i></a>
             </div>
 
-        </div>
-        <?php endif; ?>
+        </div> -->
+        <?php //endif; ?>
     </div>
 </main>
 <!-- /.Hero -->

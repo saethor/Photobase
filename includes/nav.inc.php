@@ -21,15 +21,6 @@ $dirname = basename(dirname($_SERVER['PHP_SELF']));
                 <div id="navbar" class="navbar-collapse collapse navbar-right">
 
                     <ul class="nav navbar-nav">
-                        <li <?php echo ($dirname == 'Photobase') ? 'class="active"' : ''; ?> >
-                            <a href="<?php echo $path; ?>">Home</a>
-                        </li>
-                        <li <?php echo (($dirname == 'albums') || ($dirname == 'london_2014') || ($dirname == 'krit_2013') || ($dirname == 'bustadur_2013')) ? 'class="active"' : ''; ?> >
-                            <a href="<?php echo $path; ?>albums">Albums</a>
-                        </li>
-                        <li <?php echo ($dirname == 'categories') ? 'class="active"' : ''; ?>>
-                            <a href="<?php echo $path; ?>categories">Categories</a>
-                        </li>
                         <?php if (isset($_SESSION['user_id'])): ?>
                             <li>
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?= $db_man->getUser($_SESSION['user_id'])[4]; ?> <span class="caret"></span></a>
@@ -41,10 +32,6 @@ $dirname = basename(dirname($_SERVER['PHP_SELF']));
                                         <a href="<?php echo $path . 'includes/logout.php'; ?>">Logout</a> 
                                     </li>
                                 </ul>
-                            </li>
-                        <?php else: ?>
-                            <li <?php echo ($dirname == 'login') ? 'class="active"' : ''; ?>>
-                                <a href="<?php echo $path ?>login">Login</a>
                             </li>
                         <?php endif ?>
                     </ul>

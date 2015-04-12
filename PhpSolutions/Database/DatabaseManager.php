@@ -274,9 +274,10 @@ class DatabaseManager
 	 *
 	 * @return two dimensional array
 	 */
-	public function imageList()
+	public function imageList($userID)
 	{
-		$statement = $this->connection->prepare('call ImageList()');
+		$statement = $this->connection->prepare('call ImageList(?)');
+		$statement->bindParam(1, $userID);
 		
 		try 
 		{
