@@ -8,7 +8,7 @@ use Photobase\Authenticate\CheckPassword;
 require_once '../app/init.php';
 
 // Checks if user is already loged in and redirects to right page
-if (isset($_SESSION['authenticated'])) 
+if (isset($_SESSION['user_id'])) 
 {
     header('Location: ../users/');
     exit;
