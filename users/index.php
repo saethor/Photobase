@@ -32,7 +32,7 @@ if (isset($_POST['upload']))
     
     try 
     {
-        $loader = new ThumbnailUpload($destination);
+        $loader = new ThumbnailUpload($destination, $_SESSION['user_id']);
         $loader->setThumbDestination($destinationThumb);
         $loader->setMaxSize($max);
         $loader->setThumbSuffix('');

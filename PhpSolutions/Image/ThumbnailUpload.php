@@ -43,18 +43,19 @@ Class ThumbnailUpload extends Upload
      * Link simplifyes downloading the image for user
      * @var string
      */
-    protected $downloadLink;
+    protected $userID;
 
     /**
      * Constructor for the object that inizializes the variables above
      * @param  string  $path           Sets the parent class constructor
      * @param  boolean $deleteOriginal 
      */
-    public function __constructor($path, $deleteOriginal = false)
+    public function __constructor($path, $userID, $deleteOriginal = false)
     {
         parent::__constructor($path);
         $this->thumbDestination = $path;
         $this->deleteOriginal = $deleteOriginal;
+        $this->userID = $userID;
     }
 
     /**
@@ -125,6 +126,8 @@ Class ThumbnailUpload extends Upload
     {
         $filename = isset($this->newName) ? $this->newName : $file['name'];
 
+        $userID = $this->userID;
+
         $success = move_uploaded_file($file['tmp_name'], 
             $this->destination . $filename);
 
@@ -145,7 +148,7 @@ Class ThumbnailUpload extends Upload
 
             // Adds the path to the image to the database
             $this->dbmanager = new DatabaseManager('tsuts.tskoli.is','0505943279_picturebase','0505943279','saethor94');
-            $this->dbmanager->newImageInfo(null, $this->destination . $filename, null, 1);
+            $this->dbmanager->newImageInfo(null, $filename, null, 1, $_SESSION['user_id']);
             $this->uploadedImages[] = $this->destination . $filename;
 
 

@@ -169,13 +169,14 @@ class DatabaseManager
 	 *
 	 * @return boolean
 	 */
-	public function newImageInfo($name,$path,$text,$category)
+	public function newImageInfo($name,$path,$text,$category,$userID)
 	{
-		$statement = $this->connection->prepare('call NewImage(?,?,?,?)');
+		$statement = $this->connection->prepare('call NewImage(?,?,?,?,?)');
 		$statement->bindParam(1,$name);
 		$statement->bindParam(2,$path);
 		$statement->bindParam(3,$text);
 		$statement->bindParam(4,$category);
+		$statement->bindParam(5,$userID);
 		
 		try 
 		{
