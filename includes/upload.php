@@ -2,6 +2,13 @@
 
     <div class="row">
         <h2 class="section-title">Upload a new image</h2>
+
+        <div class="alert alert-warning" role="alert">
+            <button class="close" data-dismiss="alert" aria-label="close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            You may need to refresh the page after upload for new images to show up
+        </div>
             
         <?php if (isset($result)): ?>
             <div class="alert alert-info alert-dismissible" role="alert">

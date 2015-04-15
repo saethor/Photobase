@@ -4,7 +4,7 @@ include_once __DIR__ . "/../PhpSolutions/Database/DatabaseManager.php";
 use PhpSolutions\Database\DatabaseManager;
 $db_man = new DatabaseManager('tsuts.tskoli.is','0505943279_picturebase','0505943279','saethor94');
 
-$path = "/";
+$path = "/Photobase/";
 
 $title = basename(dirname($_SERVER['PHP_SELF']));
 $title = str_replace('_', ' ', $title);

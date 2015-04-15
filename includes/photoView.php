@@ -8,7 +8,7 @@
         <h2 class="section-title">Your photos</h2>
         
         <!-- Nav tabs -->
-        <ul class="nav nav-tabs" role="tablist">
+        <ul class="nav nav-pills nav-justified" role="tablist">
             <!-- Counter checks if it is the first element, if so it adds the class active -->
             <?php $counter = 0;
             foreach ($tabs as $key): ?>
@@ -19,7 +19,7 @@
         </ul>
 
         <!-- Tab panes -->
-        <div class="tab-content">
+        <div class="tab-content row">
             
             <!-- Counter checks if it is the first element, if so it adds the class active -->
             <?php $counter = 0; 
@@ -33,7 +33,7 @@
                         <div class="thumbnail">
 
                             <!-- Image -->
-                            <a href="<?= $path . 'users/images/' . $db_man->getImageInfo($value[0])[2]; ?>" data-lightbox="roadtrip">
+                            <a href="<?= $path . 'users/images/' . $db_man->getImageInfo($value[0])[2]; ?>" data-lightbox="<?= $counter ?>">
                                 <img src="<?= 'images/' . $db_man->getImageInfo($value[0])[2]; ?>" alt="<?= $db_man->getImageInfo($value[0])[3]; ?>" class="img-responsive">
                             </a>
 
