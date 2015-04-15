@@ -42,6 +42,13 @@ if (isset($_POST['create']) && isset($_POST['new-category']) && !empty($_POST['n
     $image[3] = $imageText;
     $image[4] = $newcategory;
 }
+
+if (isset($_POST['delete']))
+{
+    $db_man->deleteImageInfo($_POST['image-id']);
+    header("Location: {$redirect}");
+    exit;
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -117,6 +124,7 @@ if (isset($_POST['create']) && isset($_POST['new-category']) && !empty($_POST['n
                     </div>
 
                     <input type="submit" name="save" value="Save" class="btn btn-success btn-lg pull-right"></input>
+                    <input type="submit" name="delete" value="Delete" class="btn btn-danger btn-lg pull-left"></input>
 
                 </form>
             </div>

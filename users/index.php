@@ -26,7 +26,7 @@ if (isset($_POST['upload']))
 {
     // Define the path to the upload folder
     $destination = 'images/';
-    $destinationThumb = 'images/thumbnails/';
+    $destinationThumb = 'images/thumb/';
 
     require_once '../PhpSolutions/Image/ThumbnailUpload.php';
     
