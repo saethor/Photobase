@@ -474,6 +474,7 @@ class DatabaseManager
 		
 		try 
 		{
+			$arr = array();
 			$statement->execute();
 			
 			return true;
@@ -481,6 +482,28 @@ class DatabaseManager
 		catch(PDOException $e)
 		{
 			return false;
+		}
+	}
+
+	public function searchImage($string)
+	{
+		$statement = $this->connection->prepare('call searchImage(?)');
+		$statement->bindParam(1, $string);
+
+		try 
+		{
+			$arr = array();
+			$statement->execute();
+			
+			while ($row = $statement->fetch(\PDO::FETCH_NUM)) 
+			{
+				array_push($arr,$row);
+			}
+			return $arr;
+		}
+		catch(PDOException $e)
+		{
+			return array();
 		}
 	}
 }
