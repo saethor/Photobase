@@ -44,7 +44,7 @@ class Thumbnail
      * Max size of the thumbnail, default 120px
      * @var integer
      */
-    protected $maxSize = 120;
+    protected $maxSize = 300;
     
     /**
      * Contains result form error check
@@ -298,7 +298,7 @@ class Thumbnail
 
         if ($this->imageType == 'jpeg')
         {
-            $newname .= '.jpeg';
+            $newname .= '.jpg';
             $success = imagejpeg($thumb, $this->destination . $newname, 100);
         }
         elseif ($this->imageType == 'png')

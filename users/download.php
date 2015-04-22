@@ -1,6 +1,8 @@
 <?php 
 
 require_once '../app/init.php';
+require_once '../includes/session_timeout.php';
+
 
 // define error page
 $error = '../404.html';

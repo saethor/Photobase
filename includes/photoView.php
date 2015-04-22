@@ -1,11 +1,12 @@
 <section class="section-photos" id="section-photos">
-    <div class="row" role="tabpanel">
+    <div class="row" role="tabpanel">  
 
     <?php if (empty($tabs)): ?>
         <h2 class="section-title">No images to display</h2>
    
    <?php else: ?>
-        <h2 class="section-title">Your photos</h2>
+        <div class="section-title">Your photos</div>
+
         
         <!-- Nav tabs -->
         <ul class="nav nav-pills nav-justified" role="tablist">
@@ -22,19 +23,22 @@
         <div class="tab-content row">
             
             <!-- Counter checks if it is the first element, if so it adds the class active -->
-            <?php $counter = 0; 
+            <?php $counter = 0;
+                  $clearfixCounter = 0; 
             foreach ($tabs as $key): ?>
 
-                <div role="tabpanel" class="tab-pane <?= ($counter++ == 0) ? 'active' : ''; ?>" id="<?= $key ?>">          
+                <div role="tabpanel" class="tab-pane <?= ($counter++ == 0) ? 'active' : ''; ?>" id="<?= $key ?>">  
+
                 <?php foreach ($db_man->imageList($userID) as $key2 => $value): 
-                    if ($value[2] == $key): ?>     
+                    if ($value[2] == $key): 
+                        $clearfixCounter++;?>     
 
                     <div class="col-xs-6 col-sm-4 col-md-3">
                         <div class="thumbnail">
 
                             <!-- Image -->
                             <a href="<?= $path . 'users/images/' . $db_man->getImageInfo($value[0])[2]; ?>" data-lightbox="<?= $counter ?>">
-                                <img src="<?= 'images/' . $db_man->getImageInfo($value[0])[2]; ?>" alt="<?= $db_man->getImageInfo($value[0])[3]; ?>" class="img-responsive">
+                                <img src="<?= 'images/thumb/' . $db_man->getImageInfo($value[0])[2]; ?>" alt="<?= $db_man->getImageInfo($value[0])[3]; ?>" class="img-responsive">
                             </a>
 
                             <div class="caption">
@@ -48,11 +52,19 @@
                                 </div>
 
                             </div>
-                            <div class="clearfix"></div>
+                            
                         </div>
                     </div> 
 
-                <?php endif; endforeach; ?>    
+                <?php 
+                // Clearfix for md
+                if ($clearfixCounter % 4 == 0) echo '<div class="clearfix hidden-xs hidden-sm"></div>';
+                // Clearfix for sm
+                if ($clearfixCounter % 3 == 0) echo '<div class="clearfix hidden-xs hidden-md hidden-lg"></div>';
+                // Clearfix for xs
+                if ($clearfixCounter % 2 == 0) echo '<div class="hidden-sm hidden-md hidden-lg"></div>';
+
+                endif; endforeach; ?>    
                 </div>
 
             <?php endforeach ?>
