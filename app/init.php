@@ -12,26 +12,10 @@ $title = ucwords($title);
 
 
 $heroTitle = "Web Album";
+$heroImages = ['hero1', 'hero2', 'hero3'];
+$selected = $heroImages[0];
 
 session_start();
 ob_start();
-
-$heroImages = ['hero1', 'hero2', 'hero3'];
-
-if (!isset($_SESSION['selected'])) {
-
-    $_SESSION['selected'] = 'hero1';
-
-}
-
-do {
-
-    $i = array_rand($heroImages);
-    $selected = $heroImages[$i];
-
-} while ($selected == $_SESSION['selected']);
-
-unset($_SESSION['selected']);
-$_SESSION['selected'] = $selected;
 
 ?>

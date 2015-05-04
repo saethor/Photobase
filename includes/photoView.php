@@ -7,9 +7,12 @@
    <?php else: ?>
         <div class="section-title">Your photos</div>
 
-        
+        <div class="well well-sm">
+            Choose categories here:
+        </div>
+
         <!-- Nav tabs -->
-        <ul class="nav nav-pills nav-justified" role="tablist">
+        <ul class="nav nav-tabs nav-justified" role="tablist">
             <!-- Counter checks if it is the first element, if so it adds the class active -->
             <?php $counter = 0;
             foreach ($tabs as $key): ?>
@@ -24,11 +27,12 @@
             
             <!-- Counter checks if it is the first element, if so it adds the class active -->
             <?php $counter = 0;
-                  $clearfixCounter = 0; 
-            foreach ($tabs as $key): ?>
+            foreach ($tabs as $key): 
+                $clearfixCounter = 0; 
+            ?>
 
                 <div role="tabpanel" class="tab-pane <?= ($counter++ == 0) ? 'active' : ''; ?>" id="<?= $key ?>">  
-
+                
                 <?php foreach ($db_man->imageList($userID) as $key2 => $value): 
                     if ($value[2] == $key): 
                         $clearfixCounter++;?>     
@@ -62,7 +66,7 @@
                 // Clearfix for sm
                 if ($clearfixCounter % 3 == 0) echo '<div class="clearfix hidden-xs hidden-md hidden-lg"></div>';
                 // Clearfix for xs
-                if ($clearfixCounter % 2 == 0) echo '<div class="hidden-sm hidden-md hidden-lg"></div>';
+                if ($clearfixCounter % 2 == 0) echo '<div class="clearfix hidden-sm hidden-md hidden-lg"></div>';
 
                 endif; endforeach; ?>    
                 </div>
